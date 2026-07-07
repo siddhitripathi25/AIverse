@@ -13,7 +13,12 @@
       const question = item.querySelector('.faq-question');
 
       if (!question) return;
-
+question.addEventListener('keydown', function (e) {
+  if (e.key === 'Enter' || e.key === ' ') {
+    e.preventDefault();
+    question.click();
+  }
+});
       question.addEventListener('click', function () {
         const isActive = item.classList.contains('active');
 
@@ -36,6 +41,7 @@
       // Set initial ARIA attributes
       question.setAttribute('aria-expanded', 'false');
       question.setAttribute('role', 'button');
+      question.setAttribute('tabindex', '0');
     });
   }
 
