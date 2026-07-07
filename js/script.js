@@ -220,3 +220,25 @@
     init();
   }
 })();
+
+const formInputt = document.querySelector('.form-input');
+const newsLetter = document.querySelector('.newsletter');
+if (formInputt) {
+  const errorMsg = document.createElement('p');
+  errorMsg.style.color = 'red';
+  errorMsg.style.marginTop = '0.5rem';
+  errorMsg.style.display = 'none';
+  formInputt.insertAdjacentElement('afterend', errorMsg);
+
+  formInputt.addEventListener('input', () => {
+    const value = formInputt.value.trim();
+    if (value && !formInputt.checkValidity()) {
+      errorMsg.textContent = 'Please enter a valid email address...';
+      errorMsg.style.display = 'block';
+    } else {
+      errorMsg.textContent = '';
+      errorMsg.style.display = 'none';
+    }
+  });
+}
+
