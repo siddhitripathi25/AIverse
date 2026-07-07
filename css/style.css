@@ -726,6 +726,16 @@ p {
   outline: none;
 }
 
+.newsletter-form .newsletter-error {
+  color: #ff6b6b;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin: 0;
+  padding-left: 0.25rem;
+  min-height: 1.25rem;
+  visibility: hidden;
+}
+
 .newsletter-form .btn {
   background: #ffffff;
   color: var(--color-primary);
