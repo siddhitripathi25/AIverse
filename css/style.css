@@ -586,6 +586,24 @@ p {
   margin-bottom: 0;
 }
 
+.topic-card-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.badge-soon {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  background: #f0f0f0;
+  color: #666;
+  padding: 2px 8px;
+  border-radius: 999px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
 /* --- Why Learn Cards --- */
 .why-grid {
   display: grid;
