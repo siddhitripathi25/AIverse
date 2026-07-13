@@ -1,38 +1,235 @@
-/* css/dashboard.css */
+/* =========================================
+   DASHBOARD STYLES - AIVerse
+   ========================================= */
 
-/* Layout for the dashboard grid */
-.dashboard-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
+/* Section title */
+.section-title {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--text-primary, #111);
 }
 
-/* Card base */
-.card {
-  background: var(--card-bg, rgba(255, 255, 255, 0.1));
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  padding: 1.5rem;
+.subsection-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 2.5rem 0 1rem;
+  color: var(--text-primary, #111);
+}
+
+/* =========================================
+   OVERALL PROGRESS BOX
+   ========================================= */
+.overall-progress-box {
+  background: linear-gradient(135deg, rgba(92,107,192,0.12), rgba(100,181,246,0.12));
+  border: 1.5px solid rgba(92,107,192,0.25);
+  border-radius: 16px;
+  padding: 2rem 2.5rem;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 24px rgba(92,107,192,0.10);
+  transition: box-shadow 0.3s;
+}
+
+.overall-progress-box:hover {
+  box-shadow: 0 8px 32px rgba(92,107,192,0.18);
+}
+
+.overall-progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+
+.overall-label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary, #111);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.overall-label i {
+  color: #f4b942;
+  font-size: 1.2rem;
+}
+
+.overall-pct {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #5c6bc0, #64b5f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* =========================================
+   ANIMATED PROGRESS BAR
+   ========================================= */
+.progress-bar-track {
+  width: 100%;
+  height: 18px;
+  background: rgba(0,0,0,0.10);
+  border-radius: 50px;
+  overflow: hidden;
+  margin-bottom: 1.4rem;
+  position: relative;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #5c6bc0, #64b5f6, #81e6d9);
+  background-size: 200% 100%;
+  border-radius: 50px;
+  transition: width 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: shimmer 2.5s linear infinite;
+  position: relative;
+}
+
+.progress-bar-fill::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.25) 50%, transparent 100%);
+  animation: shine 1.8s ease-in-out infinite;
+  border-radius: 50px;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+@keyframes shine {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* =========================================
+   PROGRESS SLIDER
+   ========================================= */
+.slider-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.slider-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary, #666);
+  min-width: 36px;
+  font-weight: 500;
+}
+
+.progress-slider {
+  flex: 1;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 8px;
+  border-radius: 50px;
+  background: linear-gradient(90deg, #5c6bc0 var(--val, 0%), rgba(0,0,0,0.12) var(--val, 0%));
+  outline: none;
+  cursor: not-allowed;
+  transition: background 0.4s;
+}
+
+.progress-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #5c6bc0, #64b5f6);
+  border: 3px solid #fff;
+  box-shadow: 0 2px 8px rgba(92,107,192,0.4);
+  cursor: not-allowed;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.progress-slider::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #5c6bc0, #64b5f6);
+  border: 3px solid #fff;
+  box-shadow: 0 2px 8px rgba(92,107,192,0.4);
+  cursor: not-allowed;
+}
+
+.progress-hint {
+  font-size: 0.92rem;
+  color: var(--text-secondary, #666);
   text-align: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+/* =========================================
+   TOPIC CARDS GRID
+   ========================================= */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.4rem;
+  margin-top: 1rem;
+}
+
+.card {
+  background: var(--card-bg, #fff);
+  border-radius: 14px;
+  padding: 1.6rem 1.2rem;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  border: 1.5px solid transparent;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #5c6bc0, #64b5f6);
+  opacity: 0;
+  transition: opacity 0.3s;
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.13);
+}
+
+.card:hover::before {
+  opacity: 1;
 }
 
 .card.completed {
-  background: var(--card-completed-bg, rgba(0, 200, 83, 0.15));
-  border: 2px solid var(--card-completed-border, #00c853);
+  border-color: #00c853;
+  background: rgba(0, 200, 83, 0.06);
 }
 
-.card .card-icon {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-  color: var(--primary-color, #5c6bc0);
+.card.completed::before {
+  background: linear-gradient(90deg, #00c853, #69f0ae);
+  opacity: 1;
+}
+
+.card-icon {
+  font-size: 2.4rem;
+  margin-bottom: 0.7rem;
+  color: #5c6bc0;
+  display: block;
+  transition: transform 0.3s;
+}
+
+.card:hover .card-icon {
+  transform: scale(1.15);
 }
 
 .card.completed .card-icon {
@@ -40,66 +237,100 @@
 }
 
 .card h3 {
-  margin: 0.5rem 0;
-  font-size: 1.2rem;
-  color: var(--text-primary, #fff);
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0.4rem 0;
+  color: var(--text-primary, #111);
 }
 
 .card .status {
+  font-size: 0.88rem;
   font-weight: 600;
-  color: #ff5252; /* red for not completed */
+  color: #ef5350;
+  margin: 0;
 }
 
 .card.completed .status {
-  color: #00c853; /* green when completed */
+  color: #00c853;
 }
 
-/* Streak widget */
-streak-widget {
-  margin-top: 3rem;
+/* =========================================
+   STREAK WIDGET
+   ========================================= */
+.streak-widget {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
-  background: rgba(255, 165, 0, 0.1);
-  backdrop-filter: blur(8px);
-  border-radius: 12px;
-  padding: 1rem 2rem;
-  animation: pulse 2s infinite alternate;
+  gap: 1.2rem;
+  background: linear-gradient(135deg, rgba(255,152,0,0.12), rgba(255,87,34,0.08));
+  border: 1.5px solid rgba(255,152,0,0.25);
+  border-radius: 16px;
+  padding: 1.4rem 2rem;
+  margin-top: 2.5rem;
+  backdrop-filter: blur(6px);
+  animation: streakPulse 3s ease-in-out infinite alternate;
 }
 
-@keyframes pulse {
-  from { background: rgba(255,165,0,0.1); }
-  to { background: rgba(255,165,0,0.2); }
+@keyframes streakPulse {
+  from { box-shadow: 0 4px 16px rgba(255,152,0,0.15); }
+  to   { box-shadow: 0 8px 28px rgba(255,152,0,0.30); }
 }
 
 .streak-icon {
-  font-size: 2rem;
+  font-size: 2.8rem;
   color: #ff9800;
-  animation: flame 1.5s ease-in-out infinite;
+  animation: flamePop 1.6s ease-in-out infinite;
 }
 
-@keyframes flame {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.2); }
-  100% { transform: scale(1); }
+@keyframes flamePop {
+  0%, 100% { transform: scale(1) rotate(-3deg); }
+  50%       { transform: scale(1.22) rotate(3deg); }
 }
 
 .streak-info h2 {
-  margin: 0;
-  font-size: 1.5rem;
-  color: var(--text-primary, #fff);
+  margin: 0 0 0.2rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary, #111);
 }
 
 .streak-days {
-  font-size: 1.2rem;
-  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #ff9800;
+  margin: 0;
 }
 
-/* Dark mode overrides (if the site uses a .dark class) */
-.dark .card {
-  background: rgba(0,0,0,0.3);
+/* =========================================
+   DARK MODE COMPATIBILITY
+   ========================================= */
+body.dark-mode .card,
+[data-theme="dark"] .card {
+  background: rgba(255,255,255,0.05);
 }
-.dark .streak-widget {
-  background: rgba(255,165,0,0.15);
+
+body.dark-mode .progress-bar-track,
+[data-theme="dark"] .progress-bar-track {
+  background: rgba(255,255,255,0.10);
+}
+
+body.dark-mode .overall-progress-box,
+[data-theme="dark"] .overall-progress-box {
+  background: linear-gradient(135deg, rgba(92,107,192,0.18), rgba(100,181,246,0.18));
+}
+
+body.dark-mode .section-title,
+body.dark-mode .subsection-title,
+body.dark-mode .card h3,
+body.dark-mode .streak-info h2,
+[data-theme="dark"] .section-title,
+[data-theme="dark"] .card h3 {
+  color: #f0f0f0;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .overall-progress-box { padding: 1.2rem 1rem; }
+  .dashboard-grid { grid-template-columns: repeat(2, 1fr); }
+  .streak-widget { flex-direction: column; text-align: center; }
 }
