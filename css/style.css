@@ -225,8 +225,8 @@ p {
 
 /* Secondary CTA on home - slightly different padding (OSS issue) */
 .btn-secondary-hero {
-  padding: 0.7rem 1.4rem;
-  border-radius: 10px;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md);
 }
 
 .btn-sm {
