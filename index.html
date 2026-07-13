@@ -44,6 +44,7 @@
           <li><a href="resources.html" class="nav-link">Resources</a></li>
           <li><a href="faq.html" class="nav-link">FAQ</a></li>
                     <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+          <li><a href="progress.html" class="nav-link">Progress</a></li>
 
         </ul>
 
@@ -85,6 +86,29 @@
           <div class="hero-image">
             <img src="images/hero-illustration.svg" alt="Neural network and AI brain illustration" class="hero-illustration" width="480" height="400">
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== HOMEPAGE PROGRESS BAR ========== -->
+    <section class="section" id="my-progress">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2>Your <span class="text-gradient">Progress</span></h2>
+          <p>Track your learning journey across all AIVerse topics.</p>
+        </div>
+        <div class="home-progress-box reveal">
+          <div class="home-progress-header">
+            <span><i class="fas fa-chart-pie"></i> Completed: <strong id="home-completed">0</strong> / 5 topics</span>
+            <span class="home-pct" id="home-pct">0%</span>
+          </div>
+          <div class="progress-bar-track" style="height:14px;border-radius:50px;background:rgba(0,0,0,0.08);overflow:hidden;margin:1rem 0;">
+            <div class="progress-bar-fill" id="home-bar-fill" style="height:100%;width:0%;background:linear-gradient(90deg,#5c6bc0,#64b5f6,#81e6d9);border-radius:50px;transition:width 0.8s ease;"></div>
+          </div>
+          <div style="display:flex;gap:0.6rem;flex-wrap:wrap;" id="home-topic-badges"></div>
+          <a href="dashboard.html" class="btn btn-primary" style="margin-top:1.2rem;">
+            <i class="fas fa-tachometer-alt"></i> View Full Dashboard
+          </a>
         </div>
       </div>
     </section>
@@ -156,7 +180,7 @@
           <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-content">
-              <h3>Python</h3>
+              <h3>Python <span class="badge-coming-soon">Coming Soon</span></h3>
               <p>Learn the programming language that powers modern AI development.</p>
             </div>
           </div>
@@ -177,14 +201,14 @@
           <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-content">
-              <h3>NLP</h3>
+              <h3>NLP <span class="badge-coming-soon">Coming Soon</span></h3>
               <p>Process and understand human language using natural language processing.</p>
             </div>
           </div>
           <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-content">
-              <h3>LLMs</h3>
+              <h3>LLMs <span class="badge-coming-soon">Coming Soon</span></h3>
               <p>Explore large language models like GPT, Claude, and Llama.</p>
             </div>
           </div>
@@ -198,7 +222,7 @@
           <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-content">
-              <h3>Vector Databases</h3>
+              <h3>Vector Databases <span class="badge-coming-soon">Coming Soon</span></h3>
               <p>Store and retrieve embeddings for semantic search and RAG systems.</p>
             </div>
           </div>
@@ -219,7 +243,7 @@
           <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-content">
-              <h3>Deployment</h3>
+              <h3>Deployment <span class="badge-coming-soon">Coming Soon</span></h3>
               <p>Deploy AI models to production with APIs, containers, and cloud services.</p>
             </div>
           </div>
@@ -462,5 +486,28 @@
   <!-- JavaScript -->
   <script src="js/darkmode.js"></script>
   <script src="js/script.js"></script>
+  <script src="js/progress.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const TOPICS = ['ai-basics','machine-learning','deep-learning','rag','ai-agents'];
+      const LABELS = {'ai-basics':'AI Basics','machine-learning':'ML','deep-learning':'Deep Learning','rag':'RAG','ai-agents':'AI Agents'};
+      const progress = getProgress();
+      const done = progress.completed.length;
+      const pct = Math.round((done / TOPICS.length) * 100);
+      const el = (id) => document.getElementById(id);
+      el('home-completed').textContent = done;
+      el('home-pct').textContent = pct + '%';
+      setTimeout(() => { el('home-bar-fill').style.width = pct + '%'; }, 200);
+      const badges = el('home-topic-badges');
+      TOPICS.forEach(t => {
+        const span = document.createElement('span');
+        span.textContent = LABELS[t];
+        span.style.cssText = progress.completed.includes(t)
+          ? 'background:#00c853;color:#fff;padding:0.3rem 0.8rem;border-radius:20px;font-size:0.82rem;font-weight:600;'
+          : 'background:rgba(0,0,0,0.08);color:#888;padding:0.3rem 0.8rem;border-radius:20px;font-size:0.82rem;font-weight:500;';
+        badges.appendChild(span);
+      });
+    });
+  </script>
 </body>
 </html>

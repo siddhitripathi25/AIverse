@@ -8,6 +8,8 @@
     'ai-agents.html': 'ai-agents',
   };
 
+  const TOPIC_ORDER = ['ai-basics', 'machine-learning', 'deep-learning', 'rag', 'ai-agents'];
+
   // Helper to read/write progress from localStorage
   function getProgress() {
     const data = localStorage.getItem('progressData');
@@ -48,21 +50,57 @@
     }
     updateStreak(progress);
     saveProgress(progress);
-    // Dispatch custom event so dashboard can react if already loaded
+
+    // Update button if on the lesson page
+    const btn = document.querySelector(`.mark-complete-btn[data-topic="${topicKey}"]`);
+    if (btn) {
+      btn.textContent = '✅ Completed!';
+      btn.disabled = true;
+      btn.style.background = '#00c853';
+    }
+
+    // Dispatch custom event so dashboard/homepage can react
     document.dispatchEvent(new CustomEvent('progressUpdated'));
   }
 
-  // Expose to global scope for other scripts (if needed)
+  // Reset all progress
+  function resetProgress() {
+    if (confirm('Are you sure you want to reset all your learning progress and streak?')) {
+      const empty = { completed: [], streak: 0, lastDate: null };
+      saveProgress(empty);
+      document.dispatchEvent(new CustomEvent('progressUpdated'));
+      alert('Progress has been reset.');
+      window.location.reload();
+    }
+  }
+
+  // Expose to global scope
   window.getProgress = getProgress;
   window.completeTopic = completeTopic;
+  window.resetProgress = resetProgress;
+  window.TOPIC_ORDER = TOPIC_ORDER;
 
-  // Automatic detection: if current page is a known lesson, mark after a short timeout (e.g., 5s)
-  const path = window.location.pathname.split('/').pop();
-  const topicKey = TOPICS[path];
-  if (topicKey) {
-    // Wait 5 seconds to avoid false positives on quick bounces
-    setTimeout(() => {
-      completeTopic(topicKey);
-    }, 5000);
-  }
+  // Run on page load
+  document.addEventListener('DOMContentLoaded', () => {
+    const path = window.location.pathname.split('/').pop();
+    const topicKey = TOPICS[path];
+
+    // Set button state if already completed
+    if (topicKey) {
+      const progress = getProgress();
+      if (progress.completed.includes(topicKey)) {
+        const btn = document.querySelector(`.mark-complete-btn[data-topic="${topicKey}"]`);
+        if (btn) {
+          btn.textContent = '✅ Completed!';
+          btn.disabled = true;
+          btn.style.background = '#00c853';
+        }
+      }
+
+      // Automatic detection: Mark complete after 5 seconds
+      setTimeout(() => {
+        completeTopic(topicKey);
+      }, 5000);
+    }
+  });
 })();
