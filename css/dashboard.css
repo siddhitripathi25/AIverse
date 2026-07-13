@@ -1,0 +1,105 @@
+/* css/dashboard.css */
+
+/* Layout for the dashboard grid */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* Card base */
+.card {
+  background: var(--card-bg, rgba(255, 255, 255, 0.1));
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.card.completed {
+  background: var(--card-completed-bg, rgba(0, 200, 83, 0.15));
+  border: 2px solid var(--card-completed-border, #00c853);
+}
+
+.card .card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color, #5c6bc0);
+}
+
+.card.completed .card-icon {
+  color: #00c853;
+}
+
+.card h3 {
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+  color: var(--text-primary, #fff);
+}
+
+.card .status {
+  font-weight: 600;
+  color: #ff5252; /* red for not completed */
+}
+
+.card.completed .status {
+  color: #00c853; /* green when completed */
+}
+
+/* Streak widget */
+streak-widget {
+  margin-top: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background: rgba(255, 165, 0, 0.1);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 1rem 2rem;
+  animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+  from { background: rgba(255,165,0,0.1); }
+  to { background: rgba(255,165,0,0.2); }
+}
+
+.streak-icon {
+  font-size: 2rem;
+  color: #ff9800;
+  animation: flame 1.5s ease-in-out infinite;
+}
+
+@keyframes flame {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.streak-info h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--text-primary, #fff);
+}
+
+.streak-days {
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+/* Dark mode overrides (if the site uses a .dark class) */
+.dark .card {
+  background: rgba(0,0,0,0.3);
+}
+.dark .streak-widget {
+  background: rgba(255,165,0,0.15);
+}
