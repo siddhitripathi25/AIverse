@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Learn Prompt Engineering - craft effective prompts for LLMs, techniques, and best practices on AIVerse.">
+  <meta name="description"
+    content="Learn Prompt Engineering - craft effective prompts for LLMs, techniques, and best practices on AIVerse.">
   <title>Prompt Engineering - AIVerse</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,15 +16,17 @@
   <link rel="stylesheet" href="css/animations.css">
 
   <!-- Favicon Icon -->
-   <link rel="icon" href="icons\Favicon.png">
+  <link rel="icon" href="icons\Favicon.png">
 
 </head>
+
 <body>
 
   <header class="header" role="banner">
     <div class="container">
       <nav class="navbar" role="navigation" aria-label="Main navigation">
-        <a href="index.html" class="logo" aria-label="AIVerse Home"><i class="fas fa-brain" aria-hidden="true"></i><span>AIVerse</span></a>
+        <a href="index.html" class="logo" aria-label="AIVerse Home"><i class="fas fa-brain"
+            aria-hidden="true"></i><span>AIVerse</span></a>
         <ul class="nav-menu">
           <li><a href="index.html" class="nav-link">Home</a></li>
           <li><a href="ai-basics.html" class="nav-link">AI Basics</a></li>
@@ -36,8 +40,10 @@
           <li><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
         <div class="nav-actions">
-          <button type="button" class="theme-toggle" aria-label="Toggle dark mode"><i class="fas fa-moon" aria-hidden="true"></i></button>
-          <button type="button" class="nav-toggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+          <button type="button" class="theme-toggle" aria-label="Toggle dark mode"><i class="fas fa-moon"
+              aria-hidden="true"></i></button>
+          <button type="button" class="nav-toggle"
+            aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
         </div>
       </nav>
     </div>
@@ -46,7 +52,8 @@
   <main>
     <section class="page-hero">
       <div class="container">
-        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> <span>/</span> <span>Prompt Engineering</span></nav>
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> <span>/</span> <span>Prompt
+            Engineering</span></nav>
         <h1>Prompt <span class="text-gradient">Engineering</span></h1>
         <p>Learn to communicate effectively with AI models and get precise, high-quality outputs every time.</p>
       </div>
@@ -55,28 +62,33 @@
     <section class="section">
       <div class="container">
         <div class="intro-text reveal">
-          <p>Prompt Engineering is the art and science of designing inputs that guide large language models (LLMs) to produce desired outputs. It's one of the most valuable skills in the age of generative AI.</p>
+          <p>Prompt Engineering is the art and science of designing inputs that guide large language models (LLMs) to
+            produce desired outputs. It's one of the most valuable skills in the age of generative AI.</p>
         </div>
 
         <div class="content-grid reveal-stagger">
           <article class="content-card">
             <h3><i class="fas fa-pen-fancy" aria-hidden="true"></i> Zero-Shot Prompting</h3>
-            <p>Ask the model to perform a task without any examples. Works well for straightforward requests like summarization, translation, or question answering.</p>
+            <p>Ask the model to perform a task without any examples. Works well for straightforward requests like
+              summarization, translation, or question answering.</p>
           </article>
 
           <article class="content-card">
             <h3><i class="fas fa-copy" aria-hidden="true"></i> Few-Shot Prompting</h3>
-            <p>Provide a few examples of input-output pairs before your actual request. This helps the model understand the pattern and format you expect.</p>
+            <p>Provide a few examples of input-output pairs before your actual request. This helps the model understand
+              the pattern and format you expect.</p>
           </article>
 
           <article class="content-card">
             <h3><i class="fas fa-brain" aria-hidden="true"></i> Chain-of-Thought</h3>
-            <p>Encourage the model to reason step by step before giving a final answer. Dramatically improves performance on math, logic, and complex reasoning tasks.</p>
+            <p>Encourage the model to reason step by step before giving a final answer. Dramatically improves
+              performance on math, logic, and complex reasoning tasks.</p>
           </article>
 
           <article class="content-card">
             <h3><i class="fas fa-user-tie" aria-hidden="true"></i> Role Prompting</h3>
-            <p>Assign a persona or expertise to the model: "You are an expert Python developer..." This shapes tone, depth, and perspective of responses.</p>
+            <p>Assign a persona or expertise to the model: "You are an expert Python developer..." This shapes tone,
+              depth, and perspective of responses.</p>
           </article>
         </div>
 
@@ -84,10 +96,13 @@
           <h3>Prompt Engineering Best Practices</h3>
           <ul>
             <li><i class="fas fa-check-circle" aria-hidden="true"></i> Be specific and clear about what you want</li>
-            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Provide context and constraints (format, length, tone)</li>
-            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Use delimiters to separate sections of your prompt</li>
+            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Provide context and constraints (format, length,
+              tone)</li>
+            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Use delimiters to separate sections of your
+              prompt</li>
             <li><i class="fas fa-check-circle" aria-hidden="true"></i> Iterate and refine prompts based on outputs</li>
-            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Test prompts across different models and temperatures</li>
+            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Test prompts across different models and
+              temperatures</li>
           </ul>
         </div>
 
@@ -102,10 +117,107 @@
           <span class="string">"""</span>
         </div>
 
+        <!-- Inline Mini-Quiz -->
+        <div class="quiz-container content-card reveal" id="mini-quiz">
+          <div class="quiz-header">
+            <h3><i class="fas fa-question-circle" aria-hidden="true"></i> Test Your Knowledge</h3>
+            <p>Take this quick, 3-question quiz to check your understanding of this topic.</p>
+          </div>
+
+          <div class="quiz-progress" aria-hidden="true">
+            <span class="step active" data-step="1">1</span>
+            <span class="step" data-step="2">2</span>
+            <span class="step" data-step="3">3</span>
+          </div>
+
+          <div class="quiz-question-wrapper">
+            <!-- Question 1 -->
+            <div class="quiz-question active" data-question="1">
+              <span class="quiz-difficulty easy">Easy</span>
+              <h4 class="question-text">What technique involves asking a model to perform a task without giving any
+                examples?</h4>
+              <div class="quiz-options">
+                <button type="button" class="quiz-option" data-correct="false"
+                  data-feedback="Incorrect. Few-shot prompting provides one or more examples to show the desired pattern.">Few-Shot
+                  Prompting</button>
+                <button type="button" class="quiz-option" data-correct="false"
+                  data-feedback="Incorrect. Chain-of-thought prompts the model to break down its reasoning step-by-step.">Chain-of-Thought</button>
+                <button type="button" class="quiz-option" data-correct="true"
+                  data-feedback="Correct! Zero-shot prompting asks the model to perform a task directly with zero prior examples.">Zero-Shot
+                  Prompting</button>
+                <button type="button" class="quiz-option" data-correct="false"
+                  data-feedback="Incorrect. Role prompting assigns a specific persona to the model.">Role
+                  Prompting</button>
+              </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="quiz-question" data-question="2">
+              <span class="quiz-difficulty medium">Medium</span>
+              <h4 class="question-text">How does the "Chain-of-Thought" prompting technique improve model outputs?</h4>
+              <div class="quiz-options">
+                <button type="button" class="quiz-option" data-correct="false"
+                  data-feedback="Incorrect. Chain-of-thought does not alter or bypass safety filters.">It bypasses
+                  safety filters.</button>
+                <button type="button" class="quiz-option" data-correct="true"
+                  data-feedback="Correct! By prompting the model to explain its reasoning steps before the final answer, it avoids quick incorrect predictions and excels on math/logic.">It
+                  encourages the model to reason step-by-step before giving a final answer.</button>
+                <button type="button" class="quiz-option" data-correct="false"
+                  data-feedback="Incorrect. Output format is controlled by specifying instructions like 'Output in JSON', not CoT itself.">It
+                  formats the output in JSON automatically.</button>
+                <button type="button" class="quiz-option" data-correct="false"
+                  data-feedback="Incorrect. Prompting only changes the instructions passed to the model; it does not train or modify the model weights.">It
+                  trains the underlying model on new data.</button>
+              </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="quiz-question" data-question="3">
+              <span class="quiz-difficulty hard">Hard</span>
+              <h4 class="question-text">When you want a model to match a target tone and format using input-output pairs
+                before the final instruction, which prompting technique is best?</h4>
+              <div class="quiz-options">
+                <button type="button" class="quiz-option" data-correct="false"
+                  data-feedback="Incorrect. Zero-shot prompting does not provide any input-output pairs or templates.">Zero-Shot
+                  Prompting</button>
+                <button type="button" class="quiz-option" data-correct="true"
+                  data-feedback="Correct! Few-shot prompting provides sample input-output pairs to demonstrate the desired format, style, or task structure.">Few-Shot
+                  Prompting</button>
+                <button type="button" class="quiz-option" data-correct="false"
+                  data-feedback="Incorrect. Chain-of-thought focuses on step-by-step reasoning steps rather than formatting examples.">Chain-of-Thought
+                  Prompting</button>
+                <button type="button" class="quiz-option" data-correct="false"
+                  data-feedback="Incorrect. Role prompting defines the persona of the model, not a set of formatting examples.">Role
+                  Prompting</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="quiz-feedback-box hidden">
+            <p class="feedback-text"></p>
+          </div>
+
+          <div class="quiz-actions">
+            <button type="button" class="btn btn-primary" id="quiz-submit-btn" disabled>Submit Answer</button>
+            <button type="button" class="btn btn-secondary hidden" id="quiz-next-btn">Next Question <i
+                class="fas fa-arrow-right"></i></button>
+            <button type="button" class="btn btn-primary hidden" id="quiz-retry-btn">Try Again <i
+                class="fas fa-undo"></i></button>
+          </div>
+
+          <div class="quiz-results hidden">
+            <p class="results-score"><span class="score-num">0</span> / 3</p>
+            <p class="results-message"></p>
+          </div>
+        </div>
+
         <div class="summary-box reveal">
           <h2>Summary</h2>
-          <p>Prompt Engineering bridges human intent and AI capability. Master these techniques to get reliable, high-quality outputs from any LLM. Next, learn <a href="rag.html">RAG (Retrieval-Augmented Generation)</a> to combine prompts with external knowledge for even more powerful AI applications.</p>
-          <a href="rag.html" class="btn btn-primary" style="margin-top: 1rem;">Next: RAG <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+          <p>Prompt Engineering bridges human intent and AI capability. Master these techniques to get reliable,
+            high-quality outputs from any LLM. Next, learn <a href="rag.html">RAG (Retrieval-Augmented Generation)</a>
+            to combine prompts with external knowledge for even more powerful AI applications.</p>
+          <a href="rag.html" class="btn btn-primary" style="margin-top: 1rem;">Next: RAG <i class="fas fa-arrow-right"
+              aria-hidden="true"></i></a>
         </div>
       </div>
     </section>
@@ -121,10 +233,14 @@
           </a>
           <p>Learn Artificial Intelligence from Zero to Hero. Free, open-source, and built for everyone.</p>
           <div class="social-links">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="https://discord.com" target="_blank" rel="noopener noreferrer" aria-label="Discord"><i class="fab fa-discord"></i></a>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i
+                class="fab fa-github"></i></a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i
+                class="fab fa-twitter"></i></a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i
+                class="fab fa-linkedin"></i></a>
+            <a href="https://discord.com" target="_blank" rel="noopener noreferrer" aria-label="Discord"><i
+                class="fab fa-discord"></i></a>
           </div>
         </div>
 
@@ -164,8 +280,11 @@
     </div>
   </footer>
 
-  <button type="button" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
+  <button type="button" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"
+      aria-hidden="true"></i></button>
   <script src="js/darkmode.js"></script>
   <script src="js/script.js"></script>
+  <script src="js/quiz.js"></script>
 </body>
+
 </html>

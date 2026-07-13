@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Learn RAG - Retrieval-Augmented Generation for building grounded AI systems with external knowledge on AIVerse.">
+  <meta name="description"
+    content="Learn RAG - Retrieval-Augmented Generation for building grounded AI systems with external knowledge on AIVerse.">
   <title>RAG - AIVerse</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,15 +16,17 @@
   <link rel="stylesheet" href="css/animations.css">
 
   <!-- Favicon Icon -->
-   <link rel="icon" href="icons\Favicon.png">
+  <link rel="icon" href="icons\Favicon.png">
 
 </head>
+
 <body>
 
   <header class="header" role="banner">
     <div class="container">
       <nav class="navbar" role="navigation" aria-label="Main navigation">
-        <a href="index.html" class="logo" aria-label="AIVerse Home"><i class="fas fa-brain" aria-hidden="true"></i><span>AIVerse</span></a>
+        <a href="index.html" class="logo" aria-label="AIVerse Home"><i class="fas fa-brain"
+            aria-hidden="true"></i><span>AIVerse</span></a>
         <ul class="nav-menu">
           <li><a href="index.html" class="nav-link">Home</a></li>
           <li><a href="ai-basics.html" class="nav-link">AI Basics</a></li>
@@ -36,8 +40,10 @@
           <li><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
         <div class="nav-actions">
-          <button type="button" class="theme-toggle" aria-label="Toggle dark mode"><i class="fas fa-moon" aria-hidden="true"></i></button>
-          <button type="button" class="nav-toggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+          <button type="button" class="theme-toggle" aria-label="Toggle dark mode"><i class="fas fa-moon"
+              aria-hidden="true"></i></button>
+          <button type="button" class="nav-toggle"
+            aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
         </div>
       </nav>
     </div>
@@ -46,45 +52,55 @@
   <main>
     <section class="page-hero">
       <div class="container">
-        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> <span>/</span> <span>RAG</span></nav>
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> <span>/</span> <span>RAG</span>
+        </nav>
         <h1>Retrieval-Augmented <span class="text-gradient">Generation</span></h1>
-        <p>Combine the power of information retrieval with generative AI to build accurate, knowledge-grounded systems.</p>
+        <p>Combine the power of information retrieval with generative AI to build accurate, knowledge-grounded systems.
+        </p>
       </div>
     </section>
 
     <section class="section">
       <div class="container">
         <div class="intro-text reveal">
-          <p>RAG (Retrieval-Augmented Generation) enhances LLM responses by retrieving relevant documents from an external knowledge base before generating answers. This reduces hallucinations and keeps AI responses grounded in factual data.</p>
+          <p>RAG (Retrieval-Augmented Generation) enhances LLM responses by retrieving relevant documents from an
+            external knowledge base before generating answers. This reduces hallucinations and keeps AI responses
+            grounded in factual data.</p>
         </div>
 
         <div class="content-grid reveal-stagger">
           <article class="content-card">
             <h3><i class="fas fa-file-alt" aria-hidden="true"></i> Document Processing</h3>
-            <p>Load documents (PDFs, web pages, databases), split them into chunks, and prepare them for embedding. Tools like LangChain and LlamaIndex simplify this pipeline.</p>
+            <p>Load documents (PDFs, web pages, databases), split them into chunks, and prepare them for embedding.
+              Tools like LangChain and LlamaIndex simplify this pipeline.</p>
           </article>
 
           <article class="content-card">
             <h3><i class="fas fa-vector-square" aria-hidden="true"></i> Embeddings &amp; Vector Stores</h3>
-            <p>Convert text chunks into numerical vectors using embedding models. Store them in vector databases like Pinecone, Chroma, Weaviate, or FAISS for fast similarity search.</p>
+            <p>Convert text chunks into numerical vectors using embedding models. Store them in vector databases like
+              Pinecone, Chroma, Weaviate, or FAISS for fast similarity search.</p>
           </article>
 
           <article class="content-card">
             <h3><i class="fas fa-search-plus" aria-hidden="true"></i> Retrieval</h3>
-            <p>When a user asks a question, convert it to an embedding and find the most semantically similar document chunks from the vector store.</p>
+            <p>When a user asks a question, convert it to an embedding and find the most semantically similar document
+              chunks from the vector store.</p>
           </article>
 
           <article class="content-card">
             <h3><i class="fas fa-magic" aria-hidden="true"></i> Generation</h3>
-            <p>Feed the retrieved context along with the user's question to an LLM. The model generates an answer grounded in the provided documents, not just its training data.</p>
+            <p>Feed the retrieved context along with the user's question to an LLM. The model generates an answer
+              grounded in the provided documents, not just its training data.</p>
           </article>
         </div>
 
         <div class="key-points reveal">
           <h3>RAG Pipeline Steps</h3>
           <ul>
-            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Ingest and chunk your knowledge base documents</li>
-            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Generate embeddings and store in a vector database</li>
+            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Ingest and chunk your knowledge base documents
+            </li>
+            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Generate embeddings and store in a vector
+              database</li>
             <li><i class="fas fa-check-circle" aria-hidden="true"></i> Retrieve relevant chunks for each user query</li>
             <li><i class="fas fa-check-circle" aria-hidden="true"></i> Augment the prompt with retrieved context</li>
             <li><i class="fas fa-check-circle" aria-hidden="true"></i> Generate and return the grounded response</li>
@@ -94,7 +110,8 @@
         <div class="code-example reveal">
           <span class="comment"># Simplified RAG flow with LangChain</span><br>
           <span class="keyword">from</span> langchain.vectorstores <span class="keyword">import</span> Chroma<br>
-          <span class="keyword">from</span> langchain.embeddings <span class="keyword">import</span> OpenAIEmbeddings<br>
+          <span class="keyword">from</span> langchain.embeddings <span class="keyword">import</span>
+          OpenAIEmbeddings<br>
           <span class="keyword">from</span> langchain.chains <span class="keyword">import</span> RetrievalQA<br><br>
           vectorstore = Chroma.from_documents(docs, OpenAIEmbeddings())<br>
           qa_chain = RetrievalQA.from_chain_type(<br>
@@ -103,10 +120,109 @@
           answer = qa_chain.run(<span class="string">"What is our refund policy?"</span>)
         </div>
 
+        <!-- Inline Mini-Quiz -->
+        <div class="quiz-container content-card reveal" id="mini-quiz">
+          <div class="quiz-header">
+            <h3><i class="fas fa-question-circle" aria-hidden="true"></i> Test Your Knowledge</h3>
+            <p>Take this quick, 3-question quiz to check your understanding of this topic.</p>
+          </div>
+
+          <div class="quiz-progress" aria-hidden="true">
+            <span class="step active" data-step="1">1</span>
+            <span class="step" data-step="2">2</span>
+            <span class="step" data-step="3">3</span>
+          </div>
+
+          <div class="quiz-question-wrapper">
+            <!-- Question 1 -->
+            <div class="quiz-question active" data-question="1">
+              <span class="quiz-difficulty easy">Easy</span>
+              <h4 class="question-text">What does RAG stand for?</h4>
+              <div class="quiz-options">
+                <button type="button" class="quiz-option" data-correct="false"
+                  data-feedback="Incorrect. The 'A' stands for Augmented, and the 'R' stands for Retrieval.">Randomly
+                  Augmented Generation</button>
+                <button type="button" class="quiz-option" data-correct="true"
+                  data-feedback="Correct! Retrieval-Augmented Generation retrieves facts from an external knowledge base to ground the LLM generation.">Retrieval-Augmented
+                  Generation</button>
+                <button type="button" class="quiz-option" data-correct="false"
+                  data-feedback="Incorrect. RAG involves retrieving text chunks, not artificial gradients or recurrent models.">Recurrent
+                  Artificial Gradient</button>
+                <button type="button" class="quiz-option" data-correct="false"
+                  data-feedback="Incorrect. RAG is about generating text answers, not drawing graphs or charts.">Robot-Assisted
+                  Graphing</button>
+              </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="quiz-question" data-question="2">
+              <span class="quiz-difficulty medium">Medium</span>
+              <h4 class="question-text">Where are text chunk embeddings stored to enable fast semantic similarity
+                search?</h4>
+              <div class="quiz-options">
+                <button type="button" class="quiz-option" data-correct="false"
+                  data-feedback="Incorrect. Relational SQL databases are optimized for tables and structured queries, not high-dimensional vector similarity.">Traditional
+                  SQL databases</button>
+                <button type="button" class="quiz-option" data-correct="true"
+                  data-feedback="Correct! Vector databases (like Pinecone, Chroma, FAISS) index and store text embeddings for rapid cosine/Euclidean distance search.">Vector
+                  databases</button>
+                <button type="button" class="quiz-option" data-correct="false"
+                  data-feedback="Incorrect. Plain text files do not provide fast indexes or search utilities for mathematical vector calculations.">Locally
+                  in plain text files</button>
+                <button type="button" class="quiz-option" data-correct="false"
+                  data-feedback="Incorrect. While cache can be stored in RAM, the primary persistent indexing mechanism is a vector database.">RAM
+                  cash memory</button>
+              </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="quiz-question" data-question="3">
+              <span class="quiz-difficulty hard">Hard</span>
+              <h4 class="question-text">In document processing for RAG, what is the purpose of splitting documents into
+                smaller "chunks"?</h4>
+              <div class="quiz-options">
+                <button type="button" class="quiz-option" data-correct="false"
+                  data-feedback="Incorrect. Splitting documents is done for model input optimization, not operating system limits.">To
+                  fit the strict file upload size of the operating system</button>
+                <button type="button" class="quiz-option" data-correct="true"
+                  data-feedback="Correct! Large documents exceed the context limit or dilute relevance; chunking ensures only the most relevant snippets are passed.">To
+                  ensure the retrieved context fits within the LLM's context window and remains highly relevant</button>
+                <button type="button" class="quiz-option" data-correct="false"
+                  data-feedback="Incorrect. Chunking is done for search optimization, not security or encryption.">To
+                  encrypt the files for secure transmission</button>
+                <button type="button" class="quiz-option" data-correct="false"
+                  data-feedback="Incorrect. The chunks remain as text or embeddings, not image files.">To convert text
+                  into image files</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="quiz-feedback-box hidden">
+            <p class="feedback-text"></p>
+          </div>
+
+          <div class="quiz-actions">
+            <button type="button" class="btn btn-primary" id="quiz-submit-btn" disabled>Submit Answer</button>
+            <button type="button" class="btn btn-secondary hidden" id="quiz-next-btn">Next Question <i
+                class="fas fa-arrow-right"></i></button>
+            <button type="button" class="btn btn-primary hidden" id="quiz-retry-btn">Try Again <i
+                class="fas fa-undo"></i></button>
+          </div>
+
+          <div class="quiz-results hidden">
+            <p class="results-score"><span class="score-num">0</span> / 3</p>
+            <p class="results-message"></p>
+          </div>
+        </div>
+
         <div class="summary-box reveal">
           <h2>Summary</h2>
-          <p>RAG is essential for building production AI applications that need accurate, up-to-date information. It bridges the gap between static LLM knowledge and dynamic data sources. Continue to <a href="ai-agents.html">AI Agents</a> to learn how to build autonomous systems that can plan and execute complex tasks.</p>
-          <a href="ai-agents.html" class="btn btn-primary" style="margin-top: 1rem;">Next: AI Agents <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+          <p>RAG is essential for building production AI applications that need accurate, up-to-date information. It
+            bridges the gap between static LLM knowledge and dynamic data sources. Continue to <a
+              href="ai-agents.html">AI Agents</a> to learn how to build autonomous systems that can plan and execute
+            complex tasks.</p>
+          <a href="ai-agents.html" class="btn btn-primary" style="margin-top: 1rem;">Next: AI Agents <i
+              class="fas fa-arrow-right" aria-hidden="true"></i></a>
         </div>
       </div>
     </section>
@@ -122,10 +238,14 @@
           </a>
           <p>Learn Artificial Intelligence from Zero to Hero. Free, open-source, and built for everyone.</p>
           <div class="social-links">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="https://discord.com" target="_blank" rel="noopener noreferrer" aria-label="Discord"><i class="fab fa-discord"></i></a>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i
+                class="fab fa-github"></i></a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i
+                class="fab fa-twitter"></i></a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i
+                class="fab fa-linkedin"></i></a>
+            <a href="https://discord.com" target="_blank" rel="noopener noreferrer" aria-label="Discord"><i
+                class="fab fa-discord"></i></a>
           </div>
         </div>
 
@@ -165,8 +285,11 @@
     </div>
   </footer>
 
-  <button type="button" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
+  <button type="button" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"
+      aria-hidden="true"></i></button>
   <script src="js/darkmode.js"></script>
   <script src="js/script.js"></script>
+  <script src="js/quiz.js"></script>
 </body>
+
 </html>
