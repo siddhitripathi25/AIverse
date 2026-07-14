@@ -15,20 +15,61 @@
 
     if (!navToggle || !navMenu) return;
 
+    // Ensure nav-menu has an id so aria-controls can reference it
+    if (!navMenu.id) {
+      navMenu.id = 'nav-menu';
+    }
+
+    // Defensively initialize aria-expanded and aria-controls on every page
+    navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.setAttribute('aria-controls', navMenu.id);
+
+    function closeMenu() {
+      navToggle.classList.remove('active');
+      navMenu.classList.remove('active');
+      navToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    function openMenu() {
+      navToggle.classList.add('active');
+      navMenu.classList.add('active');
+      navToggle.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+
     navToggle.addEventListener('click', function () {
-      navToggle.classList.toggle('active');
-      navMenu.classList.toggle('active');
-      document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+      const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+      if (isExpanded) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
     });
 
     // Close menu when a nav link is clicked
     const navLinks = navMenu.querySelectorAll('.nav-link');
     navLinks.forEach(function (link) {
-      link.addEventListener('click', function () {
-        navToggle.classList.remove('active');
-        navMenu.classList.remove('active');
-        document.body.style.overflow = '';
-      });
+      link.addEventListener('click', closeMenu);
+    });
+
+    // Close menu when Escape key is pressed (keyboard accessibility)
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+        closeMenu();
+        navToggle.focus();
+      }
+    });
+
+    // Close menu when tapping outside of it on mobile
+    document.addEventListener('click', function (e) {
+      if (
+        navMenu.classList.contains('active') &&
+        !navMenu.contains(e.target) &&
+        !navToggle.contains(e.target)
+      ) {
+        closeMenu();
+      }
     });
   }
 

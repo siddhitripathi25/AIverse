@@ -144,32 +144,48 @@
 @media (max-width: 1023px) {
   .nav-toggle {
     display: flex;
+    /* Minimum 44×44px touch target (WCAG 2.5.5) */
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
   }
 
   .nav-menu {
-    position: fixed;
-    top: var(--header-height);
+    display: flex;
+    position: absolute;
+    top: 100%;
     left: 0;
     right: 0;
-    bottom: 0;
+    height: auto;
+    max-height: calc(100vh - var(--header-height));
     flex-direction: column;
     background: var(--color-bg);
     padding: var(--spacing-lg);
     gap: var(--spacing-xs);
+    /* Start off-screen to the right */
     transform: translateX(100%);
-    transition: transform var(--transition-base);
+    transition: transform var(--transition-base), visibility var(--transition-base);
     overflow-y: auto;
-    z-index: 999;
+    /* z-index must be ABOVE the header (1000) so it overlays correctly */
+    z-index: 1001;
+    /* Hidden from pointer events and screen readers when closed */
+    visibility: hidden;
   }
 
   .nav-menu.active {
     transform: translateX(0);
+    visibility: visible;
   }
 
   .nav-link {
     width: 100%;
     padding: var(--spacing-sm) var(--spacing-md);
     font-size: var(--font-size-base);
+    /* Ensure each link is also a good touch target */
+    min-height: 44px;
+    display: flex;
+    align-items: center;
   }
 
   /* Hamburger animation when menu is open */

@@ -100,12 +100,12 @@ html {
 
 body {
   font-family: var(--font-family);
-  font-size: var(--font-size-base);
-  line-height: 1.6;
   color: var(--color-text);
-  background-color: var(--color-bg);
+  background: var(--color-bg);
+  line-height: 1.7;
+  transition: color var(--transition-base), background var(--transition-base);
+  /* Prevent horizontal bleed from the off-screen mobile nav menu */
   overflow-x: hidden;
-  transition: background-color var(--transition-base), color var(--transition-base);
 }
 
 img {
@@ -358,6 +358,14 @@ p {
   border: none;
   cursor: pointer;
   padding: 0.5rem;
+  /* Minimum accessible touch target */
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  /* Prevent text selection on rapid taps */
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 .nav-toggle span {
