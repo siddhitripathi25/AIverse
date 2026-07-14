@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Detailed overview of Build a Large Language Model (From Scratch) by Sebastian Raschka.">
+  <title>Build a Large Language Model (From Scratch) - AIVerse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+  <header class="header" role="banner">
+    <div class="container">
+      <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="logo" aria-label="AIVerse Home"><i class="fas fa-brain" aria-hidden="true"></i><span>AIVerse</span></a>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="ai-basics.html" class="nav-link">AI Basics</a></li>
+          <li><a href="machine-learning.html" class="nav-link">ML</a></li>
+          <li><a href="deep-learning.html" class="nav-link">Deep Learning</a></li>
+          <li><a href="prompt-engineering.html" class="nav-link">Prompts</a></li>
+          <li><a href="rag.html" class="nav-link">RAG</a></li>
+          <li><a href="ai-agents.html" class="nav-link">AI Agents</a></li>
+          <li><a href="resources.html" class="nav-link active">Resources</a></li>
+          <li><a href="faq.html" class="nav-link">FAQ</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button class="theme-toggle" aria-label="Toggle dark mode"><i class="fas fa-moon" aria-hidden="true"></i></button>
+          <button class="nav-toggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a> <span>/</span> <a href="resources.html">Resources</a> <span>/</span> <span>Build a Large Language Model</span>
+        </nav>
+        <h1>Build a Large Language Model <span class="text-gradient">(From Scratch)</span></h1>
+        <div class="resource-meta" style="margin-top: 1.5rem; display: flex; justify-content: center; gap: var(--spacing-sm); flex-wrap: wrap;">
+          <span class="resource-tag"><i class="fas fa-book" aria-hidden="true"></i> Book</span>
+          <span class="resource-tag"><i class="fas fa-user" aria-hidden="true"></i> Sebastian Raschka</span>
+          <span class="resource-tag"><i class="fas fa-signal" aria-hidden="true"></i> LLMs</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="intro-text reveal">
+          <p><strong>Build a Large Language Model (From Scratch)</strong> is a practical guide written by Sebastian Raschka, a leading AI researcher and educator. The book breaks down the complexities of generative AI and shows you how to design, train, and fine-tune your own GPT-like models step-by-step using PyTorch.</p>
+        </div>
+
+        <div class="content-grid reveal-stagger">
+          <article class="content-card">
+            <h3><i class="fas fa-info-circle" aria-hidden="true"></i> About this Book</h3>
+            <p>This book teaches you how to construct a complete LLM from scratch. You will write code for every single component, from the initial text tokenization and embedding generation, through the multi-head attention mechanism and transformer architecture block, to pretraining, fine-tuning, and optimizing your models.</p>
+          </article>
+
+          <article class="content-card">
+            <h3><i class="fas fa-list-ul" aria-hidden="true"></i> Key Topics Covered</h3>
+            <ul>
+              <li>Understanding Tokenizers, Word Embeddings, and Context Vectors</li>
+              <li>Implementing Causal and Multi-Head Attention Mechanisms</li>
+              <li>Coding a full GPT-style LLM Architecture in PyTorch</li>
+              <li>Pretraining on Unlabeled Corpora (Optimization &amp; Training Loops)</li>
+              <li>Loading Pretrained weights (e.g. from OpenAI's GPT-2)</li>
+              <li>Instruction Fine-Tuning for Classification &amp; Dialogue agents</li>
+            </ul>
+          </article>
+
+          <article class="content-card">
+            <h3><i class="fas fa-thumbs-up" aria-hidden="true"></i> Why this book is useful</h3>
+            <p>It demystifies LLMs. Instead of treating models as API endpoints or pre-packaged wrappers, you learn the exact mechanics by typing code line-by-line. Crucially, the architectures are designed to run, train, and test on standard consumer laptops, making advanced AI development accessible to everyone.</p>
+          </article>
+
+          <article class="content-card">
+            <h3><i class="fas fa-users" aria-hidden="true"></i> Who should read it</h3>
+            <p>Developers, machine learning engineers, and software architects who want a deep, practical understanding of transformer-based language models. Basic knowledge of Python and familiarity with deep learning concepts or PyTorch are helpful pre-requisites.</p>
+          </article>
+        </div>
+
+        <div class="summary-box reveal" style="margin-top: 3rem;">
+          <h2>Get Started with Sebastian Raschka's Book</h2>
+          <p>Read the book on Manning Publications and download the official repository containing all source code and Jupyter notebooks for free on GitHub.</p>
+          <div style="display: flex; gap: var(--spacing-sm); justify-content: center; flex-wrap: wrap; margin-top: 1.5rem;">
+            <a href="https://mng.bz/M96o" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              Visit Manning Catalog <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+            </a>
+            <a href="resources.html" class="btn btn-secondary">
+              <i class="fas fa-arrow-left" aria-hidden="true"></i> Back to Resources
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><a href="index.html" class="logo"><i class="fas fa-brain" aria-hidden="true"></i><span>AIVerse</span></a><p>Learn AI from Zero to Hero.</p></div>
+        <div class="footer-links"><h4>Learn</h4><ul><li><a href="ai-basics.html">AI Basics</a></li><li><a href="resources.html">Resources</a></li></ul></div>
+        <div class="footer-links"><h4>Advanced</h4><ul><li><a href="rag.html">RAG</a></li><li><a href="ai-agents.html">AI Agents</a></li></ul></div>
+        <div class="footer-links"><h4>Community</h4><ul><li><a href="contact.html">Contact</a></li><li><a href="faq.html">FAQ</a></li></ul></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2026 AIVerse. Open Source under MIT License.</p></div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
+  <script src="js/darkmode.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
