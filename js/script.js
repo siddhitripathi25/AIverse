@@ -16,6 +16,8 @@
     if (!navToggle || !navMenu) return;
 
     navToggle.addEventListener('click', function () {
+      const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', !isExpanded);
       navToggle.classList.toggle('active');
       navMenu.classList.toggle('active');
       document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
@@ -27,6 +29,7 @@
       link.addEventListener('click', function () {
         navToggle.classList.remove('active');
         navMenu.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
       });
     });
