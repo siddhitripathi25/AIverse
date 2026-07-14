@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="User dashboard with progress tracking and streak feature for AIVerse learning platform." />
+  <title>Dashboard - AIVerse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+  <link rel="icon" href="icons/Favicon.png" />
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="header" role="banner">
+    <div class="container">
+      <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="logo" aria-label="AIVerse Home">
+          <i class="fas fa-brain" aria-hidden="true"></i><span>AIVerse</span>
+        </a>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="ai-basics.html" class="nav-link">AI Basics</a></li>
+          <li><a href="machine-learning.html" class="nav-link">ML</a></li>
+          <li><a href="deep-learning.html" class="nav-link">Deep Learning</a></li>
+          <li><a href="prompt-engineering.html" class="nav-link">Prompts</a></li>
+          <li><a href="rag.html" class="nav-link">RAG</a></li>
+          <li><a href="ai-agents.html" class="nav-link">AI Agents</a></li>
+          <li><a href="resources.html" class="nav-link">Resources</a></li>
+          <li><a href="faq.html" class="nav-link">FAQ</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+          <li><a href="progress.html" class="nav-link">Progress</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button type="button" class="theme-toggle" aria-label="Toggle dark mode">
+            <i class="fas fa-moon" aria-hidden="true"></i>
+          </button>
+          <button type="button" class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="dashboard">
+      <div class="container">
+        <h1 class="section-title">Your Learning <span class="text-gradient">Dashboard</span></h1>
+
+        <!-- OVERALL PROGRESS BOX -->
+        <div class="overall-progress-box">
+          <div class="overall-progress-header">
+            <span class="overall-label"><i class="fas fa-trophy"></i> Overall Progress</span>
+            <span class="overall-pct" id="overall-pct">0%</span>
+          </div>
+
+          <!-- Animated Progress Bar -->
+          <div class="progress-bar-track"
+               role="progressbar"
+               aria-valuenow="0"
+               aria-valuemin="0"
+               aria-valuemax="100"
+               aria-label="Overall learning progress">
+            <div class="progress-bar-fill" id="progress-bar-fill"></div>
+          </div>
+
+          <!-- Slider (reflects progress, read-only) -->
+          <div class="slider-wrapper">
+            <span class="slider-label">0%</span>
+            <input type="range"
+                   id="progress-slider"
+                   class="progress-slider"
+                   min="0" max="100" value="0"
+                   disabled
+                   aria-label="Progress indicator slider" />
+            <span class="slider-label">100%</span>
+          </div>
+
+          <p class="progress-hint" id="progress-hint">Complete topics below to increase your progress!</p>
+        </div>
+
+        <!-- TOPIC CARDS -->
+        <h2 class="subsection-title">Topic Progress</h2>
+        <div class="dashboard-grid">
+          <div class="card progress-card" data-topic="ai-basics">
+            <i class="fas fa-robot card-icon"></i>
+            <h3>AI Basics</h3>
+            <p class="status">Not Completed</p>
+          </div>
+          <div class="card progress-card" data-topic="machine-learning">
+            <i class="fas fa-chart-line card-icon"></i>
+            <h3>Machine Learning</h3>
+            <p class="status">Not Completed</p>
+          </div>
+          <div class="card progress-card" data-topic="deep-learning">
+            <i class="fas fa-network-wired card-icon"></i>
+            <h3>Deep Learning</h3>
+            <p class="status">Not Completed</p>
+          </div>
+          <div class="card progress-card" data-topic="rag">
+            <i class="fas fa-database card-icon"></i>
+            <h3>RAG</h3>
+            <p class="status">Not Completed</p>
+          </div>
+          <div class="card progress-card" data-topic="ai-agents">
+            <i class="fas fa-user-astronaut card-icon"></i>
+            <h3>AI Agents</h3>
+            <p class="status">Not Completed</p>
+          </div>
+        </div>
+
+        <!-- STREAK WIDGET -->
+        <div class="streak-widget">
+          <i class="fas fa-fire streak-icon"></i>
+          <div class="streak-info">
+            <h2>Current Streak</h2>
+            <p class="streak-days">0 days</p>
+          </div>
+        </div>
+
+        <!-- Reset Button -->
+        <div style="text-align: center; margin-top: 2rem;">
+          <button type="button" onclick="resetProgress()" style="background:#ef5350; color:#fff; border:none; padding:0.6rem 1.2rem; border-radius:8px; font-weight:600; cursor:pointer; display:inline-flex; align-items:center; gap:0.5rem; transition: background 0.3s;">
+            <i class="fas fa-trash-alt"></i> Reset All Progress
+          </button>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <i class="fas fa-brain" aria-hidden="true"></i><span>AIVerse</span>
+          </a>
+          <p>Learn Artificial Intelligence from Zero to Hero. Free, open-source, and built for everyone.</p>
+          <div class="social-links">
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://discord.com" target="_blank" rel="noopener noreferrer" aria-label="Discord"><i class="fab fa-discord"></i></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Learn</h4>
+          <ul>
+            <li><a href="ai-basics.html">AI Basics</a></li>
+            <li><a href="machine-learning.html">Machine Learning</a></li>
+            <li><a href="deep-learning.html">Deep Learning</a></li>
+            <li><a href="prompt-engineering.html">Prompt Engineering</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Advanced</h4>
+          <ul>
+            <li><a href="rag.html">RAG</a></li>
+            <li><a href="ai-agents.html">AI Agents</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AIVerse. Open Source under MIT License. Built with passion for AI education.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button type="button" class="back-to-top" aria-label="Back to top">
+    <i class="fas fa-arrow-up" aria-hidden="true"></i>
+  </button>
+
+  <script src="js/darkmode.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/progress.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const TOTAL_TOPICS = 5;
+      const progress = getProgress();
+      let completed = 0;
+
+      // Mark cards
+      document.querySelectorAll('.progress-card').forEach(card => {
+        const topic = card.dataset.topic;
+        if (progress.completed.includes(topic)) {
+          card.querySelector('.status').textContent = 'Completed ✅';
+          card.classList.add('completed');
+          completed++;
+        }
+      });
+
+      // Percentage
+      const pct = Math.round((completed / TOTAL_TOPICS) * 100);
+
+      // Update label
+      document.getElementById('overall-pct').textContent = pct + '%';
+
+      // Animate bar after small delay
+      const fill = document.getElementById('progress-bar-fill');
+      fill.style.width = '0%';
+      setTimeout(() => { fill.style.width = pct + '%'; }, 150);
+      fill.parentElement.setAttribute('aria-valuenow', pct);
+
+      // Sync slider
+      document.getElementById('progress-slider').value = pct;
+
+      // Hint message
+      const hint = document.getElementById('progress-hint');
+      if (pct === 0)        hint.textContent = '🚀 Start learning to track your progress!';
+      else if (pct === 100) hint.textContent = '🎉 Amazing! You completed all 5 topics!';
+      else                  hint.textContent = `You have completed ${completed} of ${TOTAL_TOPICS} topics — keep going!`;
+
+      // Streak
+      document.querySelector('.streak-days').textContent = `${progress.streak || 0} days`;
+    });
+  </script>
+</body>
+</html>

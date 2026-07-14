@@ -12,6 +12,10 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
   <link rel="stylesheet" href="css/animations.css">
+
+  <!-- Favicon Icon -->
+   <link rel="icon" href="icons\Favicon.png">
+
 </head>
 <body>
 
@@ -30,10 +34,12 @@
           <li><a href="resources.html" class="nav-link">Resources</a></li>
           <li><a href="faq.html" class="nav-link">FAQ</a></li>
           <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+          <li><a href="progress.html" class="nav-link">Progress</a></li>
         </ul>
         <div class="nav-actions">
-          <button class="theme-toggle" aria-label="Toggle dark mode"><i class="fas fa-moon" aria-hidden="true"></i></button>
-          <button class="nav-toggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+          <button type="button" class="theme-toggle" aria-label="Toggle dark mode"><i class="fas fa-moon" aria-hidden="true"></i></button>
+          <button type="button" class="nav-toggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
         </div>
       </nav>
     </div>
@@ -178,16 +184,57 @@
   <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="footer-grid">
-        <div class="footer-brand"><a href="index.html" class="logo"><i class="fas fa-brain" aria-hidden="true"></i><span>AIVerse</span></a><p>Learn AI from Zero to Hero.</p></div>
-        <div class="footer-links"><h4>Learn</h4><ul><li><a href="ai-basics.html">AI Basics</a></li><li><a href="resources.html">Resources</a></li></ul></div>
-        <div class="footer-links"><h4>Advanced</h4><ul><li><a href="rag.html">RAG</a></li><li><a href="ai-agents.html">AI Agents</a></li></ul></div>
-        <div class="footer-links"><h4>Community</h4><ul><li><a href="contact.html">Contact</a></li><li><a href="faq.html">FAQ</a></li></ul></div>
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <i class="fas fa-brain" aria-hidden="true"></i>
+            <span>AIVerse</span>
+          </a>
+          <p>Learn Artificial Intelligence from Zero to Hero. Free, open-source, and built for everyone.</p>
+          <div class="social-links">
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://discord.com" target="_blank" rel="noopener noreferrer" aria-label="Discord"><i class="fab fa-discord"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <h4>Learn</h4>
+          <ul>
+            <li><a href="ai-basics.html">AI Basics</a></li>
+            <li><a href="machine-learning.html">Machine Learning</a></li>
+            <li><a href="deep-learning.html">Deep Learning</a></li>
+            <li><a href="prompt-engineering.html">Prompt Engineering</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Advanced</h4>
+          <ul>
+            <li><a href="rag.html">RAG</a></li>
+            <li><a href="ai-agents.html">AI Agents</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">Contribute</a></li>
+            <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">Report a Bug</a></li>
+          </ul>
+        </div>
       </div>
-      <div class="footer-bottom"><p>&copy; 2026 AIVerse. Open Source under MIT License.</p></div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 AIVerse. Open Source under MIT License. Built with passion for AI education.</p>
+      </div>
     </div>
   </footer>
 
-  <button class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
+  <button type="button" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
   <script src="js/darkmode.js"></script>
   <script src="js/script.js"></script>
   <script src="js/resources.js"></script>
