@@ -38,6 +38,8 @@
           <li><a href="resources.html" class="nav-link">Resources</a></li>
           <li><a href="faq.html" class="nav-link">FAQ</a></li>
           <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+          <li><a href="progress.html" class="nav-link">Progress</a></li>
         </ul>
         <div class="nav-actions">
           <button type="button" class="theme-toggle" aria-label="Toggle dark mode"><i class="fas fa-moon"
@@ -220,6 +222,9 @@ result = agent.run(<span class="string">"Research the latest trends in AI agents
           </p>
           <a href="resources.html" class="btn btn-primary" style="margin-top: 1rem;">Explore Resources <i
               class="fas fa-arrow-right" aria-hidden="true"></i></a>
+          <button type="button" class="btn btn-success mark-complete-btn" data-topic="ai-agents" style="margin-top:0.8rem;margin-left:0.5rem;" onclick="completeTopic('ai-agents'); this.textContent='✅ Completed!'; this.disabled=true; this.style.background='#00c853';">
+            <i class="fas fa-check-circle"></i> Mark as Complete
+          </button>
         </div>
       </div>
     </section>
@@ -287,6 +292,7 @@ result = agent.run(<span class="string">"Research the latest trends in AI agents
   <script src="js/darkmode.js"></script>
   <script src="js/script.js"></script>
   <script src="js/quiz.js"></script>
+<script src="js/progress.js"></script>
 </body>
 
 </html>

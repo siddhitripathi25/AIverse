@@ -1391,3 +1391,22 @@ p {
 .hidden {
   display: none !important;
 }
+
+.badge-coming-soon {
+  background: var(--color-border);
+  color: var(--color-text-muted);
+  font-size: 0.72rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  margin-left: 0.5rem;
+  font-weight: 500;
+  vertical-align: middle;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+body.dark-mode .badge-coming-soon,
+[data-theme="dark"] .badge-coming-soon {
+  background: rgba(255, 255, 255, 0.1);
+  color: #aaa;
+  border-color: rgba(255, 255, 255, 0.05);
+}
