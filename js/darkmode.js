@@ -11,10 +11,10 @@
   const LIGHT = 'light';
 
   /**
-   * Get the saved theme from localStorage, or default to light
+   * Get the saved theme from localStorage
    */
   function getSavedTheme() {
-    return localStorage.getItem(STORAGE_KEY) || LIGHT;
+    return localStorage.getItem(STORAGE_KEY);
   }
 
   /**
@@ -22,7 +22,6 @@
    */
   function applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem(STORAGE_KEY, theme);
     updateToggleIcon(theme);
   }
 
@@ -49,9 +48,10 @@
    * Toggle between light and dark themes
    */
   function toggleTheme() {
-    const current = getSavedTheme();
+    const current = document.documentElement.getAttribute('data-theme') || LIGHT;
     const next = current === DARK ? LIGHT : DARK;
     applyTheme(next);
+    localStorage.setItem(STORAGE_KEY, next);
   }
 
   /**
@@ -59,7 +59,21 @@
    */
   function init() {
     const savedTheme = getSavedTheme();
-    applyTheme(savedTheme);
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+    if (savedTheme) {
+      applyTheme(savedTheme);
+    } else {
+      // Auto-detect and apply system theme preference
+      applyTheme(systemPrefersDark.matches ? DARK : LIGHT);
+
+      // Listen for system theme preference changes
+      systemPrefersDark.addEventListener('change', (e) => {
+        if (!getSavedTheme()) {
+          applyTheme(e.matches ? DARK : LIGHT);
+        }
+      });
+    }
 
     const toggleBtn = document.querySelector('.theme-toggle');
     if (toggleBtn) {
