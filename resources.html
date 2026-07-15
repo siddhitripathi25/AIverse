@@ -23,7 +23,7 @@
     <div class="container">
       <nav class="navbar" role="navigation" aria-label="Main navigation">
         <a href="index.html" class="logo" aria-label="AIVerse Home"><i class="fas fa-brain" aria-hidden="true"></i><span>AIVerse</span></a>
-        <ul class="nav-menu">
+        <ul class="nav-menu" id="nav-menu">
           <li><a href="index.html" class="nav-link">Home</a></li>
           <li><a href="ai-basics.html" class="nav-link">AI Basics</a></li>
           <li><a href="machine-learning.html" class="nav-link">ML</a></li>
@@ -34,10 +34,12 @@
           <li><a href="resources.html" class="nav-link">Resources</a></li>
           <li><a href="faq.html" class="nav-link">FAQ</a></li>
           <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+          <li><a href="progress.html" class="nav-link">Progress</a></li>
         </ul>
         <div class="nav-actions">
           <button type="button" class="theme-toggle" aria-label="Toggle dark mode"><i class="fas fa-moon" aria-hidden="true"></i></button>
-          <button type="button" class="nav-toggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+<button type="button" class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu"><span></span><span></span><span></span></button>
         </div>
       </nav>
     </div>
@@ -58,31 +60,108 @@
           <p>We've handpicked the best free and paid resources to help you learn AI effectively. Whether you're just starting out or advancing to production systems, you'll find something valuable here.</p>
         </div>
 
+
+        <!-- Search & Filter Section -->
+        <div class="search-filter-container reveal">
+          <div class="search-wrapper">
+            <i class="fas fa-search search-icon" aria-hidden="true"></i>
+            <input type="text" id="resource-search" placeholder="Search resources by title, keyword, or description..." aria-label="Search resources">
+            <button id="clear-search" class="clear-btn" aria-label="Clear search input" style="display: none;">
+              <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="filter-categories" role="group" aria-label="Resource categories">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="books">Books</button>
+            <button class="filter-btn" data-filter="courses">Online Courses</button>
+            <button class="filter-btn" data-filter="tools">Tools &amp; Libraries</button>
+          </div>
+        </div>
+
+        <div class="category-section" data-section="books">
+          <h2 class="reveal" style="margin-bottom: 1.5rem;"><i class="fas fa-book" style="color: var(--color-primary);"></i> Books</h2>
+          <div class="content-grid reveal-stagger" style="margin-bottom: 3rem;">
+            <article class="resource-card" data-category="books">
+              <span class="resource-tag">Beginner</span>
+              <h3>Artificial Intelligence: A Modern Approach</h3>
+              <p>The definitive textbook by Stuart Russell and Peter Norvig. Covers AI fundamentals, search, logic, and machine learning comprehensively.</p>
+              <a href="artificial-intelligence-modern-approach.html">Learn more <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+            </article>
+            <article class="resource-card" data-category="books">
+              <span class="resource-tag">Intermediate</span>
+              <h3>Hands-On Machine Learning</h3>
+              <p>Aurélien Géron's practical guide to ML with Scikit-Learn, Keras, and TensorFlow. Perfect for hands-on learners who want to build projects.</p>
+              <a href="hands-on-machine-learning.html">Learn more <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+            </article>
+            <article class="resource-card" data-category="books">
+              <span class="resource-tag">Advanced</span>
+              <h3>Deep Learning</h3>
+              <p>By Ian Goodfellow, Yoshua Bengio, and Aaron Courville. The comprehensive reference for neural networks and deep learning theory.</p>
+              <a href="deep-learning-book.html">Learn more <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+            </article>
+            <article class="resource-card" data-category="books">
+              <span class="resource-tag">LLMs</span>
+              <h3>Build a Large Language Model (From Scratch)</h3>
+              <p>Sebastian Raschka's guide to understanding and building LLMs from the ground up. Essential for modern AI practitioners.</p>
+              <a href="build-a-large-language-model.html">Learn more <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+            </article>
+          </div>
+        </div>
+
+        <div class="category-section" data-section="courses">
+          <h2 class="reveal" style="margin-bottom: 1.5rem;"><i class="fas fa-laptop" style="color: var(--color-primary);"></i> Online Courses</h2>
+          <div class="content-grid reveal-stagger" style="margin-bottom: 3rem;">
+            <article class="resource-card" data-category="courses">
+              <span class="resource-tag">Free</span>
+              <h3>fast.ai Practical Deep Learning</h3>
+              <p>Top-down approach to deep learning. Build models from lesson one, then understand the theory behind them.</p>
+              <a href="fast-ai-practical-deep-learning.html">Learn more <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+            </article>
+            <article class="resource-card" data-category="courses">
+              <span class="resource-tag">Free</span>
+              <h3>Andrew Ng's Machine Learning Course</h3>
+              <p>The course that launched millions of ML careers. Covers fundamentals with clear explanations and practical assignments.</p>
+              <a href="andrew-ng-machine-learning.html">Learn more <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+            </article>
+            <article class="resource-card" data-category="courses">
+              <span class="resource-tag">Free</span>
+              <h3>Stanford CS229: Machine Learning</h3>
+              <p>Rigorous academic course covering ML theory, algorithms, and mathematical foundations from Stanford University.</p>
+              <a href="stanford-cs229-machine-learning.html">Learn more <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+            </article>
+            <article class="resource-card" data-category="courses">
+              <span class="resource-tag">Free</span>
+              <h3>DeepLearning.AI Short Courses</h3>
+              <p>Focused courses on prompt engineering, LangChain, RAG, and AI agents. Great for staying current with latest techniques.</p>
+              <a href="deeplearning-ai-short-courses.html">Learn more <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+            </article>
+          </div>
+=======
         <h2 class="reveal" style="margin-bottom: 1.5rem;"><i class="fas fa-book" style="color: var(--color-primary);"></i> Books</h2>
         <div class="content-grid reveal-stagger" style="margin-bottom: 3rem;">
           <article class="resource-card">
             <span class="resource-tag">Beginner</span>
             <h3>Artificial Intelligence: A Modern Approach</h3>
             <p>The definitive textbook by Stuart Russell and Peter Norvig. Covers AI fundamentals, search, logic, and machine learning comprehensively.</p>
-            <a href="#">Learn more <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+            <a href="artificial-intelligence-modern-approach.html">Learn more <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
           </article>
           <article class="resource-card">
             <span class="resource-tag">Intermediate</span>
             <h3>Hands-On Machine Learning</h3>
             <p>Aurélien Géron's practical guide to ML with Scikit-Learn, Keras, and TensorFlow. Perfect for hands-on learners who want to build projects.</p>
-            <a href="#">Learn more <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+            <a href="hands-on-machine-learning.html">Learn more <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
           </article>
           <article class="resource-card">
             <span class="resource-tag">Advanced</span>
             <h3>Deep Learning</h3>
             <p>By Ian Goodfellow, Yoshua Bengio, and Aaron Courville. The comprehensive reference for neural networks and deep learning theory.</p>
-            <a href="#">Learn more <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+            <a href="deep-learning-book.html">Learn more <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
           </article>
           <article class="resource-card">
             <span class="resource-tag">LLMs</span>
             <h3>Build a Large Language Model (From Scratch)</h3>
             <p>Sebastian Raschka's guide to understanding and building LLMs from the ground up. Essential for modern AI practitioners.</p>
-            <a href="#">Learn more <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+            <a href="build-a-large-language-model.html">Learn more <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
           </article>
         </div>
 
@@ -92,50 +171,63 @@
             <span class="resource-tag">Free</span>
             <h3>fast.ai Practical Deep Learning</h3>
             <p>Top-down approach to deep learning. Build models from lesson one, then understand the theory behind them.</p>
-            <a href="#">Learn more <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+            <a href="fast-ai-practical-deep-learning.html">Learn more <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
           </article>
           <article class="resource-card">
             <span class="resource-tag">Free</span>
             <h3>Andrew Ng's Machine Learning Course</h3>
             <p>The course that launched millions of ML careers. Covers fundamentals with clear explanations and practical assignments.</p>
-            <a href="#">Learn more <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+            <a href="andrew-ng-machine-learning.html">Learn more <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
           </article>
           <article class="resource-card">
             <span class="resource-tag">Free</span>
             <h3>Stanford CS229: Machine Learning</h3>
             <p>Rigorous academic course covering ML theory, algorithms, and mathematical foundations from Stanford University.</p>
-            <a href="#">Learn more <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+            <a href="stanford-cs229-machine-learning.html">Learn more <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
           </article>
           <article class="resource-card">
             <span class="resource-tag">Free</span>
             <h3>DeepLearning.AI Short Courses</h3>
             <p>Focused courses on prompt engineering, LangChain, RAG, and AI agents. Great for staying current with latest techniques.</p>
-            <a href="#">Learn more <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+            <a href="deeplearning-ai-short-courses.html">Learn more <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
           </article>
+
         </div>
 
-        <h2 class="reveal" style="margin-bottom: 1.5rem;"><i class="fas fa-wrench" style="color: var(--color-primary);"></i> Tools &amp; Libraries</h2>
-        <div class="content-grid reveal-stagger" style="margin-bottom: 3rem;">
-          <article class="resource-card">
-            <span class="resource-tag">Python</span>
-            <h3>Scikit-learn</h3>
-            <p>The go-to library for classical machine learning. Simple API for classification, regression, clustering, and preprocessing.</p>
-          </article>
-          <article class="resource-card">
-            <span class="resource-tag">Deep Learning</span>
-            <h3>PyTorch &amp; TensorFlow</h3>
-            <p>Leading deep learning frameworks. PyTorch for research flexibility, TensorFlow for production deployment at scale.</p>
-          </article>
-          <article class="resource-card">
-            <span class="resource-tag">LLMs</span>
-            <h3>LangChain &amp; LlamaIndex</h3>
-            <p>Frameworks for building LLM applications with RAG, agents, and tool use. Essential for modern AI development.</p>
-          </article>
-          <article class="resource-card">
-            <span class="resource-tag">Models</span>
-            <h3>Hugging Face</h3>
-            <p>Access thousands of pre-trained models, datasets, and spaces. The GitHub of machine learning.</p>
-          </article>
+        <div class="category-section" data-section="tools">
+          <h2 class="reveal" style="margin-bottom: 1.5rem;"><i class="fas fa-wrench" style="color: var(--color-primary);"></i> Tools &amp; Libraries</h2>
+          <div class="content-grid reveal-stagger" style="margin-bottom: 3rem;">
+            <article class="resource-card" data-category="tools">
+              <span class="resource-tag">Python</span>
+              <h3>Scikit-learn</h3>
+              <p>The go-to library for classical machine learning. Simple API for classification, regression, clustering, and preprocessing.</p>
+            </article>
+            <article class="resource-card" data-category="tools">
+              <span class="resource-tag">Deep Learning</span>
+              <h3>PyTorch &amp; TensorFlow</h3>
+              <p>Leading deep learning frameworks. PyTorch for research flexibility, TensorFlow for production deployment at scale.</p>
+            </article>
+            <article class="resource-card" data-category="tools">
+              <span class="resource-tag">LLMs</span>
+              <h3>LangChain &amp; LlamaIndex</h3>
+              <p>Frameworks for building LLM applications with RAG, agents, and tool use. Essential for modern AI development.</p>
+            </article>
+            <article class="resource-card" data-category="tools">
+              <span class="resource-tag">Models</span>
+              <h3>Hugging Face</h3>
+              <p>Access thousands of pre-trained models, datasets, and spaces. The GitHub of machine learning.</p>
+            </article>
+          </div>
+        </div>
+
+        <!-- Empty State UI -->
+        <div class="no-results-state" id="no-results" style="display: none;">
+          <div class="no-results-icon">
+            <i class="fas fa-search-minus" aria-hidden="true"></i>
+          </div>
+          <h3>No Resources Found</h3>
+          <p>We couldn't find any resources matching your search query or selected category. Try adjusting your filters or clearing your search.</p>
+          <button id="reset-filters" class="btn btn-primary">Reset Filters</button>
         </div>
 
         <div class="summary-box reveal">
@@ -149,17 +241,59 @@
   <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="footer-grid">
-        <div class="footer-brand"><a href="index.html" class="logo"><i class="fas fa-brain" aria-hidden="true"></i><span>AIVerse</span></a><p>Learn AI from Zero to Hero.</p></div>
-        <div class="footer-links"><h4>Learn</h4><ul><li><a href="ai-basics.html">AI Basics</a></li><li><a href="resources.html">Resources</a></li></ul></div>
-        <div class="footer-links"><h4>Advanced</h4><ul><li><a href="rag.html">RAG</a></li><li><a href="ai-agents.html">AI Agents</a></li></ul></div>
-        <div class="footer-links"><h4>Community</h4><ul><li><a href="contact.html">Contact</a></li><li><a href="faq.html">FAQ</a></li></ul></div>
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <i class="fas fa-brain" aria-hidden="true"></i>
+            <span>AIVerse</span>
+          </a>
+          <p>Learn Artificial Intelligence from Zero to Hero. Free, open-source, and built for everyone.</p>
+          <div class="social-links">
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://discord.com" target="_blank" rel="noopener noreferrer" aria-label="Discord"><i class="fab fa-discord"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <h4>Learn</h4>
+          <ul>
+            <li><a href="ai-basics.html">AI Basics</a></li>
+            <li><a href="machine-learning.html">Machine Learning</a></li>
+            <li><a href="deep-learning.html">Deep Learning</a></li>
+            <li><a href="prompt-engineering.html">Prompt Engineering</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Advanced</h4>
+          <ul>
+            <li><a href="rag.html">RAG</a></li>
+            <li><a href="ai-agents.html">AI Agents</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">Contribute</a></li>
+            <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">Report a Bug</a></li>
+          </ul>
+        </div>
       </div>
-      <div class="footer-bottom"><p>&copy; 2026 AIVerse. Open Source under MIT License.</p></div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 AIVerse. Open Source under MIT License. Built with passion for AI education.</p>
+      </div>
     </div>
   </footer>
 
   <button type="button" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
   <script src="js/darkmode.js"></script>
   <script src="js/script.js"></script>
+  <script src="js/resources.js"></script>
 </body>
 </html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="View your completed, remaining, and next recommended lessons on AIVerse." />
+  <title>Progress Details - AIVerse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+  <link rel="icon" href="icons/Favicon.png" />
+  <style>
+    .progress-section-card {
+      background: var(--card-bg, #fff);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    body.dark-mode .progress-section-card,
+    [data-theme="dark"] .progress-section-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+    .topic-list-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    body.dark-mode .topic-list-item,
+    [data-theme="dark"] .topic-list-item {
+      border-bottom-color: rgba(255, 255, 255, 0.05);
+    }
+    .topic-list-item:last-child {
+      border-bottom: none;
+    }
+    .topic-info-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .topic-info-left i {
+      font-size: 1.5rem;
+    }
+    .status-badge {
+      font-size: 0.85rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+    .status-badge.completed {
+      background: rgba(0, 200, 83, 0.15);
+      color: #00c853;
+    }
+    .status-badge.remaining {
+      background: rgba(0, 0, 0, 0.05);
+      color: var(--text-secondary, #666);
+    }
+    body.dark-mode .status-badge.remaining,
+    [data-theme="dark"] .status-badge.remaining {
+      background: rgba(255, 255, 255, 0.08);
+      color: #ccc;
+    }
+    .next-lesson-box {
+      background: linear-gradient(135deg, rgba(92, 107, 192, 0.15), rgba(100, 181, 246, 0.15));
+      border: 1.5px dashed #5c6bc0;
+      border-radius: 14px;
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1rem;
+    }
+    .btn-reset-danger {
+      background: #ef5350;
+      color: #fff;
+      border: none;
+      padding: 0.8rem 1.6rem;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .btn-reset-danger:hover {
+      background: #d32f2f;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="header" role="banner">
+    <div class="container">
+      <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="logo" aria-label="AIVerse Home">
+          <i class="fas fa-brain" aria-hidden="true"></i><span>AIVerse</span>
+        </a>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="ai-basics.html" class="nav-link">AI Basics</a></li>
+          <li><a href="machine-learning.html" class="nav-link">ML</a></li>
+          <li><a href="deep-learning.html" class="nav-link">Deep Learning</a></li>
+          <li><a href="prompt-engineering.html" class="nav-link">Prompts</a></li>
+          <li><a href="rag.html" class="nav-link">RAG</a></li>
+          <li><a href="ai-agents.html" class="nav-link">AI Agents</a></li>
+          <li><a href="resources.html" class="nav-link">Resources</a></li>
+          <li><a href="faq.html" class="nav-link">FAQ</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+          <li><a href="progress.html" class="nav-link">Progress</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button type="button" class="theme-toggle" aria-label="Toggle dark mode">
+            <i class="fas fa-moon" aria-hidden="true"></i>
+          </button>
+          <button type="button" class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <h1 class="section-title">Detailed <span class="text-gradient">Progress Tracker</span></h1>
+
+        <!-- Next Recommended Lesson -->
+        <div class="progress-section-card">
+          <h2><i class="fas fa-arrow-circle-right" style="color: #5c6bc0; margin-right: 0.5rem;"></i>Next Recommended Lesson</h2>
+          <div id="next-lesson-container">
+            <!-- Dynamically filled -->
+          </div>
+        </div>
+
+        <!-- Completed Lessons -->
+        <div class="progress-section-card">
+          <h2><i class="fas fa-check-circle" style="color: #00c853; margin-right: 0.5rem;"></i>Completed Topics</h2>
+          <div id="completed-topics-list">
+            <!-- Dynamically filled -->
+          </div>
+        </div>
+
+        <!-- Remaining Lessons -->
+        <div class="progress-section-card">
+          <h2><i class="fas fa-hourglass-half" style="color: #ff9800; margin-right: 0.5rem;"></i>Remaining Topics</h2>
+          <div id="remaining-topics-list">
+            <!-- Dynamically filled -->
+          </div>
+        </div>
+
+        <!-- Reset Button Section -->
+        <div style="text-align: center; margin-top: 3rem;">
+          <button type="button" class="btn-reset-danger" onclick="resetProgress()">
+            <i class="fas fa-trash-alt"></i> Reset All Progress
+          </button>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <i class="fas fa-brain" aria-hidden="true"></i><span>AIVerse</span>
+          </a>
+          <p>Learn Artificial Intelligence from Zero to Hero. Free, open-source, and built for everyone.</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AIVerse. Open Source under MIT License.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/darkmode.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/progress.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const TOPIC_DETAILS = {
+        'ai-basics': { name: 'AI Basics', url: 'ai-basics.html', icon: 'fa-robot', color: '#5c6bc0' },
+        'machine-learning': { name: 'Machine Learning', url: 'machine-learning.html', icon: 'fa-chart-line', color: '#64b5f6' },
+        'deep-learning': { name: 'Deep Learning', url: 'deep-learning.html', icon: 'fa-network-wired', color: '#81e6d9' },
+        'rag': { name: 'RAG (Retrieval-Augmented Gen)', url: 'rag.html', icon: 'fa-database', color: '#ff9800' },
+        'ai-agents': { name: 'AI Agents', url: 'ai-agents.html', icon: 'fa-user-astronaut', color: '#e91e63' }
+      };
+
+      const progress = getProgress();
+      const completedList = document.getElementById('completed-topics-list');
+      const remainingList = document.getElementById('remaining-topics-list');
+      const nextContainer = document.getElementById('next-lesson-container');
+
+      let firstRemaining = null;
+
+      TOPIC_ORDER.forEach(id => {
+        const topic = TOPIC_DETAILS[id];
+        const isCompleted = progress.completed.includes(id);
+
+        const item = document.createElement('div');
+        item.className = 'topic-list-item';
+        item.innerHTML = `
+          <div class="topic-info-left">
+            <i class="fas ${topic.icon}" style="color: ${topic.color}"></i>
+            <div>
+              <strong>${topic.name}</strong>
+            </div>
+          </div>
+          <span class="status-badge ${isCompleted ? 'completed' : 'remaining'}">
+            ${isCompleted ? 'Completed' : 'Remaining'}
+          </span>
+        `;
+
+        if (isCompleted) {
+          completedList.appendChild(item);
+        } else {
+          remainingList.appendChild(item.cloneNode(true));
+          if (!firstRemaining) {
+            firstRemaining = topic;
+          }
+        }
+      });
+
+      // Show placeholder if empty lists
+      if (completedList.children.length === 0) {
+        completedList.innerHTML = '<p style="color: var(--text-secondary, #666); font-style: italic; padding: 1rem;">No topics completed yet. Start learning now!</p>';
+      }
+      if (remainingList.children.length === 0) {
+        remainingList.innerHTML = '<p style="color: var(--text-secondary, #666); font-style: italic; padding: 1rem;">🎉 All topics completed!</p>';
+      }
+
+      // Show Next Recommended Lesson
+      if (firstRemaining) {
+        nextContainer.innerHTML = `
+          <div class="next-lesson-box">
+            <div>
+              <h3 style="margin: 0; color: #5c6bc0;"><i class="fas ${firstRemaining.icon}"></i> ${firstRemaining.name}</h3>
+              <p style="margin: 0.3rem 0 0 0; font-size: 0.9rem;">We recommend this topic next based on your current progress.</p>
+            </div>
+            <a href="${firstRemaining.url}" class="btn btn-primary">Start Lesson <i class="fas fa-play"></i></a>
+          </div>
+        `;
+      } else {
+        nextContainer.innerHTML = `
+          <div class="next-lesson-box" style="border-color: #00c853; background: rgba(0, 200, 83, 0.08);">
+            <div>
+              <h3 style="margin: 0; color: #00c853;"><i class="fas fa-check-double"></i> You're All Caught Up!</h3>
+              <p style="margin: 0.3rem 0 0 0; font-size: 0.9rem;">You have successfully completed all core topics in AIVerse.</p>
+            </div>
+            <a href="dashboard.html" class="btn btn-secondary">Go to Dashboard</a>
+          </div>
+        `;
+      }
+    });
+  </script>
+</body>
+</html>
