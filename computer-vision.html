@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Learn Computer Vision - image processing, CNNs, object detection, and more on AIVerse.">
+  <title>Computer Vision - AIVerse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animations.css">
+
+  <!-- Favicon Icon -->
+   <link rel="icon" href="icons\Favicon.png">
+
+</head>
+<body>
+
+  <header class="header" role="banner">
+    <div class="container">
+      <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="logo" aria-label="AIVerse Home"><i class="fas fa-brain" aria-hidden="true"></i><span>AIVerse</span></a>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="ai-basics.html" class="nav-link">AI Basics</a></li>
+          <li><a href="machine-learning.html" class="nav-link">ML</a></li>
+          <li><a href="deep-learning.html" class="nav-link">Deep Learning</a></li>
+          <li><a href="prompt-engineering.html" class="nav-link">Prompts</a></li>
+          <li><a href="rag.html" class="nav-link">RAG</a></li>
+          <li><a href="ai-agents.html" class="nav-link">AI Agents</a></li>
+          <li><a href="resources.html" class="nav-link">Resources</a></li>
+          <li><a href="faq.html" class="nav-link">FAQ</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button type="button" class="theme-toggle" aria-label="Toggle dark mode"><i class="fas fa-moon" aria-hidden="true"></i></button>
+          <button type="button" class="nav-toggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> <span>/</span> <span>Computer
+            Vision</span></nav>
+        <h1>Computer <span class="text-gradient">Vision</span></h1>
+        <p>Teach machines to see, interpret, and understand images and video content.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="intro-text reveal">
+          <p>Deep Learning uses multi-layered neural networks to learn hierarchical representations of data. It's the driving force behind breakthroughs in image recognition, language understanding, and content generation.</p>
+        </div>
+
+        <div class="content-grid reveal-stagger">
+          <article class="content-card">
+            <h3><i class="fas fa-image" aria-hidden="true"></i> Image Processing</h3>
+            <p>The first step in most vision tasks. Images are cleaned up, resized, and converted into a format a
+              model can understand, such as pixel arrays or feature maps.</p>
+          </article>
+
+          <article class="content-card">
+            <h3><i class="fas fa-border-all" aria-hidden="true"></i> Convolutional Neural Networks</h3>
+            <p>CNNs use filters that slide across an image to detect patterns like edges, textures, and shapes,
+              building up to recognizing full objects layer by layer.</p>
+          </article>
+
+          <article class="content-card">
+            <h3><i class="fas fa-vector-square" aria-hidden="true"></i> Object Detection</h3>
+            <p>Goes beyond classifying an image to finding where objects are located, drawing boxes around them.
+              Used in self-driving cars and security systems.</p>
+          </article>
+
+          <article class="content-card">
+            <h3><i class="fas fa-draw-polygon" aria-hidden="true"></i> Image Segmentation</h3>
+            <p>Labels every single pixel in an image with what it belongs to, giving a precise outline of objects.
+              Common in medical scans and photo editing tools.</p>
+          </article>
+        </div>
+
+        <div class="key-points reveal">
+          <h3>Common Computer Vision Tasks</h3>
+          <ul>
+            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Image classification — labeling an entire
+              image with a category</li>
+            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Object detection — finding and locating
+              multiple objects in an image</li>
+            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Facial recognition — identifying or verifying
+              a person from an image</li>
+            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Optical character recognition (OCR) — reading
+              text from images</li>
+            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Popular tools: OpenCV, YOLO, and pre-trained
+              models on Hugging Face</li>
+          </ul>
+        </div>
+
+        <div class="code-example reveal">
+          <span class="comment"># Load and classify an image with a pre-trained model</span><br>
+          <span class="keyword">import</span> torch<br>
+          <span class="keyword">from</span> torchvision <span class="keyword">import</span> models, transforms<br>
+          <span class="keyword">from</span> PIL <span class="keyword">import</span> Image<br><br>
+          model = models.resnet18(pretrained=<span class="keyword">True</span>)<br>
+          model.eval()<br><br>
+          image = Image.open(<span class="string">"photo.jpg"</span>)<br>
+          transform = transforms.Compose([transforms.Resize(224), transforms.ToTensor()])<br>
+          input_tensor = transform(image).unsqueeze(0)<br><br>
+          output = model(input_tensor)
+        </div>
+
+        <div class="summary-box reveal">
+          <h2>Summary</h2>
+          <p>Deep Learning unlocks the most advanced AI capabilities today. From CNNs for vision to Transformers for language, these architectures form the backbone of modern AI. Continue your journey with <a href="prompt-engineering.html">Prompt Engineering</a> to learn how to effectively interact with large language models.</p>
+          <a href="prompt-engineering.html" class="btn btn-primary" style="margin-top: 1rem;">Next: Prompt Engineering <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><a href="index.html" class="logo"><i class="fas fa-brain" aria-hidden="true"></i><span>AIVerse</span></a><p>Learn AI from Zero to Hero.</p></div>
+        <div class="footer-links"><h4>Learn</h4><ul><li><a href="ai-basics.html">AI Basics</a></li><li><a href="machine-learning.html">Machine Learning</a></li><li><a href="deep-learning.html">Deep Learning</a></li></ul></div>
+        <div class="footer-links"><h4>Advanced</h4><ul><li><a href="rag.html">RAG</a></li><li><a href="ai-agents.html">AI Agents</a></li></ul></div>
+        <div class="footer-links"><h4>Community</h4><ul><li><a href="contact.html">Contact</a></li><li><a href="faq.html">FAQ</a></li></ul></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2026 AIVerse. Open Source under MIT License.</p></div>
+    </div>
+  </footer>
+
+  <button type="button" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
+  <script src="js/darkmode.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
