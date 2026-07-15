@@ -4,11 +4,12 @@
     'ai-basics.html': 'ai-basics',
     'machine-learning.html': 'machine-learning',
     'deep-learning.html': 'deep-learning',
+    'prompt-engineering.html': 'prompt-engineering',
     'rag.html': 'rag',
     'ai-agents.html': 'ai-agents',
   };
 
-  const TOPIC_ORDER = ['ai-basics', 'machine-learning', 'deep-learning', 'rag', 'ai-agents'];
+  const TOPIC_ORDER = ['ai-basics', 'machine-learning', 'deep-learning', 'prompt-engineering', 'rag', 'ai-agents'];
 
   // Helper to read/write progress from localStorage
   function getProgress() {
@@ -97,10 +98,7 @@
         }
       }
 
-      // Automatic detection: Mark complete after 5 seconds
-      setTimeout(() => {
-        completeTopic(topicKey);
-      }, 5000);
+
     }
   });
 })();
