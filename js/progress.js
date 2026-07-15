@@ -97,10 +97,7 @@
         }
       }
 
-      // Automatic detection: Mark complete after 5 seconds
-      setTimeout(() => {
-        completeTopic(topicKey);
-      }, 5000);
+
     }
   });
 })();
