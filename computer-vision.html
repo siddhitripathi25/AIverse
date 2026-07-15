@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Learn Computer Vision - image processing, CNNs, object detection, and more on AIVerse.">
+  <title>Computer Vision - AIVerse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animations.css">
+
+  <!-- Favicon Icon -->
+   <link rel="icon" href="icons\Favicon.png">
+
+</head>
+<body>
+
+  <header class="header" role="banner">
+    <div class="container">
+      <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="logo" aria-label="AIVerse Home"><i class="fas fa-brain" aria-hidden="true"></i><span>AIVerse</span></a>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="ai-basics.html" class="nav-link">AI Basics</a></li>
+          <li><a href="machine-learning.html" class="nav-link">ML</a></li>
+          <li><a href="deep-learning.html" class="nav-link">Deep Learning</a></li>
+          <li><a href="prompt-engineering.html" class="nav-link">Prompts</a></li>
+          <li><a href="rag.html" class="nav-link">RAG</a></li>
+          <li><a href="ai-agents.html" class="nav-link">AI Agents</a></li>
+          <li><a href="resources.html" class="nav-link">Resources</a></li>
+          <li><a href="faq.html" class="nav-link">FAQ</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button type="button" class="theme-toggle" aria-label="Toggle dark mode"><i class="fas fa-moon" aria-hidden="true"></i></button>
+          <button type="button" class="nav-toggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> <span>/</span> <span>Computer
+            Vision</span></nav>
+        <h1>Computer <span class="text-gradient">Vision</span></h1>
+        <p>Teach machines to see, interpret, and understand images and video content.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="intro-text reveal">
+          <p>Deep Learning uses multi-layered neural networks to learn hierarchical representations of data. It's the driving force behind breakthroughs in image recognition, language understanding, and content generation.</p>
+        </div>
+
+        <div class="content-grid reveal-stagger">
+          <article class="content-card">
+            <h3><i class="fas fa-image" aria-hidden="true"></i> Image Processing</h3>
+            <p>The first step in most vision tasks. Images are cleaned up, resized, and converted into a format a
+              model can understand, such as pixel arrays or feature maps.</p>
+          </article>
+
+          <article class="content-card">
+            <h3><i class="fas fa-border-all" aria-hidden="true"></i> Convolutional Neural Networks</h3>
+            <p>CNNs use filters that slide across an image to detect patterns like edges, textures, and shapes,
+              building up to recognizing full objects layer by layer.</p>
+          </article>
+
+          <article class="content-card">
+            <h3><i class="fas fa-vector-square" aria-hidden="true"></i> Object Detection</h3>
+            <p>Goes beyond classifying an image to finding where objects are located, drawing boxes around them.
+              Used in self-driving cars and security systems.</p>
+          </article>
+
+          <article class="content-card">
+            <h3><i class="fas fa-draw-polygon" aria-hidden="true"></i> Image Segmentation</h3>
+            <p>Labels every single pixel in an image with what it belongs to, giving a precise outline of objects.
+              Common in medical scans and photo editing tools.</p>
+          </article>
+        </div>
+
+        <div class="key-points reveal">
+          <h3>Common Computer Vision Tasks</h3>
+          <ul>
+            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Image classification — labeling an entire
+              image with a category</li>
+            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Object detection — finding and locating
+              multiple objects in an image</li>
+            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Facial recognition — identifying or verifying
+              a person from an image</li>
+            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Optical character recognition (OCR) — reading
+              text from images</li>
+            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Popular tools: OpenCV, YOLO, and pre-trained
+              models on Hugging Face</li>
+          </ul>
+        </div>
+
+        <div class="code-example reveal">
+          <span class="comment"># Load and classify an image with a pre-trained model</span><br>
+          <span class="keyword">import</span> torch<br>
+          <span class="keyword">from</span> torchvision <span class="keyword">import</span> models, transforms<br>
+          <span class="keyword">from</span> PIL <span class="keyword">import</span> Image<br><br>
+          model = models.resnet18(pretrained=<span class="keyword">True</span>)<br>
+          model.eval()<br><br>
+          image = Image.open(<span class="string">"photo.jpg"</span>)<br>
+          transform = transforms.Compose([transforms.Resize(224), transforms.ToTensor()])<br>
+          input_tensor = transform(image).unsqueeze(0)<br><br>
+          output = model(input_tensor)
+        </div>
+        <!-- Inline Mini-Quiz -->
+        <div class="quiz-container content-card reveal" id="mini-quiz">
+          <div class="quiz-header">
+            <h3><i class="fas fa-question-circle" aria-hidden="true"></i> Test Your Knowledge</h3>
+            <p>Take this quick, 3-question quiz to check your understanding of this topic.</p>
+          </div>
+
+          <div class="quiz-progress" aria-hidden="true">
+            <span class="step active" data-step="1">1</span>
+            <span class="step" data-step="2">2</span>
+            <span class="step" data-step="3">3</span>
+          </div>
+
+          <div class="quiz-question-wrapper">
+            <!-- Question 1 -->
+            <div class="quiz-question active" data-question="1">
+              <span class="quiz-difficulty easy">Easy</span>
+              <h4 class="question-text">What is the main goal of computer vision?</h4>
+              <div class="quiz-options">
+                <button type="button" class="quiz-option" data-correct="false"
+                  data-feedback="Incorrect. That describes natural language processing, not computer vision.">Understanding
+                  human language</button>
+                <button type="button" class="quiz-option" data-correct="true"
+                  data-feedback="Correct! Computer vision teaches machines to interpret and understand visual information like images and video.">Interpreting
+                  images and video</button>
+                <button type="button" class="quiz-option" data-correct="false"
+                  data-feedback="Incorrect. That describes reinforcement learning.">Learning from trial and error
+                  rewards</button>
+                <button type="button" class="quiz-option" data-correct="false"
+                  data-feedback="Incorrect. That describes generative AI for text.">Generating written text</button>
+              </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="quiz-question" data-question="2">
+              <span class="quiz-difficulty medium">Medium</span>
+              <h4 class="question-text">Which type of neural network is most commonly used for image tasks?</h4>
+              <div class="quiz-options">
+                <button type="button" class="quiz-option" data-correct="false"
+                  data-feedback="Incorrect. RNNs are used for sequential data like text and time series.">Recurrent
+                  Neural Network (RNN)</button>
+                <button type="button" class="quiz-option" data-correct="true"
+                  data-feedback="Correct! Convolutional Neural Networks (CNNs) are designed to detect spatial patterns in images.">Convolutional
+                  Neural Network (CNN)</button>
+                <button type="button" class="quiz-option" data-correct="false"
+                  data-feedback="Incorrect. Decision trees are a simpler, non-neural machine learning model.">Decision
+                  Tree</button>
+                <button type="button" class="quiz-option" data-correct="false"
+                  data-feedback="Incorrect. That is a type of unsupervised clustering algorithm.">K-Means
+                  Clustering</button>
+              </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="quiz-question" data-question="3">
+              <span class="quiz-difficulty hard">Hard</span>
+              <h4 class="question-text">What does image segmentation do that image classification does not?</h4>
+              <div class="quiz-options">
+                <button type="button" class="quiz-option" data-correct="false"
+                  data-feedback="Incorrect. That is closer to what image classification does.">Assigns a single label
+                  to the whole image</button>
+                <button type="button" class="quiz-option" data-correct="true"
+                  data-feedback="Correct! Image segmentation labels every pixel, giving a precise outline of each object rather than just one label for the image.">Labels
+                  every pixel with what it belongs to</button>
+                <button type="button" class="quiz-option" data-correct="false"
+                  data-feedback="Incorrect. That describes object detection, not segmentation.">Draws a single box
+                  around the main subject</button>
+                <button type="button" class="quiz-option" data-correct="false"
+                  data-feedback="Incorrect. Resizing is a basic pre-processing step, not the purpose of segmentation.">Resizes
+                  the image for the model</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="quiz-feedback-box hidden">
+            <p class="feedback-text"></p>
+          </div>
+
+          <div class="quiz-actions">
+            <button type="button" class="btn btn-primary" id="quiz-submit-btn" disabled>Submit Answer</button>
+            <button type="button" class="btn btn-secondary hidden" id="quiz-next-btn">Next Question <i
+                class="fas fa-arrow-right"></i></button>
+            <button type="button" class="btn btn-primary hidden" id="quiz-retry-btn">Try Again <i
+                class="fas fa-undo"></i></button>
+          </div>
+
+          <div class="quiz-results hidden">
+            <p class="results-score"><span class="score-num">0</span> / 3</p>
+            <p class="results-message"></p>
+          </div>
+        </div>
+
+        <div class="summary-box reveal">
+          <h2>Summary</h2>
+          <p>Computer Vision lets machines make sense of the visual world, from classifying images to detecting and
+            outlining objects in real time. Continue your journey with <a href="deep-learning.html">Deep
+              Learning</a> to see how CNNs and other architectures make this possible.</p>
+          <a href="deep-learning.html" class="btn btn-primary" style="margin-top: 1rem;">Next: Deep Learning
+            <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><a href="index.html" class="logo"><i class="fas fa-brain" aria-hidden="true"></i><span>AIVerse</span></a><p>Learn AI from Zero to Hero.</p></div>
+        <div class="footer-links"><h4>Learn</h4><ul><li><a href="ai-basics.html">AI Basics</a></li><li><a href="machine-learning.html">Machine Learning</a></li><li><a href="deep-learning.html">Deep Learning</a></li></ul></div>
+        <div class="footer-links"><h4>Advanced</h4><ul><li><a href="rag.html">RAG</a></li><li><a href="ai-agents.html">AI Agents</a></li></ul></div>
+        <div class="footer-links"><h4>Community</h4><ul><li><a href="contact.html">Contact</a></li><li><a href="faq.html">FAQ</a></li></ul></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2026 AIVerse. Open Source under MIT License.</p></div>
+    </div>
+  </footer>
+
+  <button type="button" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
+  <script src="js/darkmode.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
