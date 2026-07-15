@@ -114,11 +114,105 @@
           input_tensor = transform(image).unsqueeze(0)<br><br>
           output = model(input_tensor)
         </div>
+        <!-- Inline Mini-Quiz -->
+        <div class="quiz-container content-card reveal" id="mini-quiz">
+          <div class="quiz-header">
+            <h3><i class="fas fa-question-circle" aria-hidden="true"></i> Test Your Knowledge</h3>
+            <p>Take this quick, 3-question quiz to check your understanding of this topic.</p>
+          </div>
+
+          <div class="quiz-progress" aria-hidden="true">
+            <span class="step active" data-step="1">1</span>
+            <span class="step" data-step="2">2</span>
+            <span class="step" data-step="3">3</span>
+          </div>
+
+          <div class="quiz-question-wrapper">
+            <!-- Question 1 -->
+            <div class="quiz-question active" data-question="1">
+              <span class="quiz-difficulty easy">Easy</span>
+              <h4 class="question-text">What is the main goal of computer vision?</h4>
+              <div class="quiz-options">
+                <button type="button" class="quiz-option" data-correct="false"
+                  data-feedback="Incorrect. That describes natural language processing, not computer vision.">Understanding
+                  human language</button>
+                <button type="button" class="quiz-option" data-correct="true"
+                  data-feedback="Correct! Computer vision teaches machines to interpret and understand visual information like images and video.">Interpreting
+                  images and video</button>
+                <button type="button" class="quiz-option" data-correct="false"
+                  data-feedback="Incorrect. That describes reinforcement learning.">Learning from trial and error
+                  rewards</button>
+                <button type="button" class="quiz-option" data-correct="false"
+                  data-feedback="Incorrect. That describes generative AI for text.">Generating written text</button>
+              </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="quiz-question" data-question="2">
+              <span class="quiz-difficulty medium">Medium</span>
+              <h4 class="question-text">Which type of neural network is most commonly used for image tasks?</h4>
+              <div class="quiz-options">
+                <button type="button" class="quiz-option" data-correct="false"
+                  data-feedback="Incorrect. RNNs are used for sequential data like text and time series.">Recurrent
+                  Neural Network (RNN)</button>
+                <button type="button" class="quiz-option" data-correct="true"
+                  data-feedback="Correct! Convolutional Neural Networks (CNNs) are designed to detect spatial patterns in images.">Convolutional
+                  Neural Network (CNN)</button>
+                <button type="button" class="quiz-option" data-correct="false"
+                  data-feedback="Incorrect. Decision trees are a simpler, non-neural machine learning model.">Decision
+                  Tree</button>
+                <button type="button" class="quiz-option" data-correct="false"
+                  data-feedback="Incorrect. That is a type of unsupervised clustering algorithm.">K-Means
+                  Clustering</button>
+              </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="quiz-question" data-question="3">
+              <span class="quiz-difficulty hard">Hard</span>
+              <h4 class="question-text">What does image segmentation do that image classification does not?</h4>
+              <div class="quiz-options">
+                <button type="button" class="quiz-option" data-correct="false"
+                  data-feedback="Incorrect. That is closer to what image classification does.">Assigns a single label
+                  to the whole image</button>
+                <button type="button" class="quiz-option" data-correct="true"
+                  data-feedback="Correct! Image segmentation labels every pixel, giving a precise outline of each object rather than just one label for the image.">Labels
+                  every pixel with what it belongs to</button>
+                <button type="button" class="quiz-option" data-correct="false"
+                  data-feedback="Incorrect. That describes object detection, not segmentation.">Draws a single box
+                  around the main subject</button>
+                <button type="button" class="quiz-option" data-correct="false"
+                  data-feedback="Incorrect. Resizing is a basic pre-processing step, not the purpose of segmentation.">Resizes
+                  the image for the model</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="quiz-feedback-box hidden">
+            <p class="feedback-text"></p>
+          </div>
+
+          <div class="quiz-actions">
+            <button type="button" class="btn btn-primary" id="quiz-submit-btn" disabled>Submit Answer</button>
+            <button type="button" class="btn btn-secondary hidden" id="quiz-next-btn">Next Question <i
+                class="fas fa-arrow-right"></i></button>
+            <button type="button" class="btn btn-primary hidden" id="quiz-retry-btn">Try Again <i
+                class="fas fa-undo"></i></button>
+          </div>
+
+          <div class="quiz-results hidden">
+            <p class="results-score"><span class="score-num">0</span> / 3</p>
+            <p class="results-message"></p>
+          </div>
+        </div>
 
         <div class="summary-box reveal">
           <h2>Summary</h2>
-          <p>Deep Learning unlocks the most advanced AI capabilities today. From CNNs for vision to Transformers for language, these architectures form the backbone of modern AI. Continue your journey with <a href="prompt-engineering.html">Prompt Engineering</a> to learn how to effectively interact with large language models.</p>
-          <a href="prompt-engineering.html" class="btn btn-primary" style="margin-top: 1rem;">Next: Prompt Engineering <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+          <p>Computer Vision lets machines make sense of the visual world, from classifying images to detecting and
+            outlining objects in real time. Continue your journey with <a href="deep-learning.html">Deep
+              Learning</a> to see how CNNs and other architectures make this possible.</p>
+          <a href="deep-learning.html" class="btn btn-primary" style="margin-top: 1rem;">Next: Deep Learning
+            <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
         </div>
       </div>
     </section>

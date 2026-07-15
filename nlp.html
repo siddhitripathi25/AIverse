@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Learn Natural Language Processing - text processing, tokenization, transformers, and more on AIVerse.">
+  <title>Natural Language Processing - AIVerse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animations.css">
+
+  <!-- Favicon Icon -->
+  <link rel="icon" href="icons\Favicon.png">
+
+</head>
+
+<body>
+
+  <header class="header" role="banner">
+    <div class="container">
+      <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="logo" aria-label="AIVerse Home"><i class="fas fa-brain"
+            aria-hidden="true"></i><span>AIVerse</span></a>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="ai-basics.html" class="nav-link">AI Basics</a></li>
+          <li><a href="machine-learning.html" class="nav-link">ML</a></li>
+          <li><a href="deep-learning.html" class="nav-link">Deep Learning</a></li>
+          <li><a href="prompt-engineering.html" class="nav-link">Prompts</a></li>
+          <li><a href="rag.html" class="nav-link">RAG</a></li>
+          <li><a href="ai-agents.html" class="nav-link">AI Agents</a></li>
+          <li><a href="resources.html" class="nav-link">Resources</a></li>
+          <li><a href="faq.html" class="nav-link">FAQ</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+          <li><a href="progress.html" class="nav-link">Progress</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button type="button" class="theme-toggle" aria-label="Toggle dark mode"><i class="fas fa-moon"
+              aria-hidden="true"></i></button>
+          <button type="button" class="nav-toggle"
+            aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> <span>/</span> <span>Natural
+            Language Processing</span></nav>
+        <h1>Natural Language <span class="text-gradient">Processing</span></h1>
+        <p>Enable computers to understand, interpret, and generate human language.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="intro-text reveal">
+          <p>Deep Learning uses multi-layered neural networks to learn hierarchical representations of data. It's the
+            driving force behind breakthroughs in image recognition, language understanding, and content generation.</p>
+        </div>
+
+        <div class="content-grid reveal-stagger">
+          <article class="content-card">
+            <h3><i class="fas fa-font" aria-hidden="true"></i> Tokenization</h3>
+            <p>The first step in NLP. Text is broken down into smaller pieces called tokens — words or sub-words —
+              that a model can process as numbers.</p>
+          </article>
+
+          <article class="content-card">
+            <h3><i class="fas fa-project-diagram" aria-hidden="true"></i> Word Embeddings</h3>
+            <p>Words are converted into vectors of numbers that capture their meaning, so similar words end up close
+              together in this numerical space.</p>
+          </article>
+
+          <article class="content-card">
+            <h3><i class="fas fa-bolt" aria-hidden="true"></i> Transformers</h3>
+            <p>The architecture behind modern LLMs. Self-attention lets a model weigh how much each word in a sentence
+              matters to every other word, capturing context and meaning.</p>
+          </article>
+
+          <article class="content-card">
+            <h3><i class="fas fa-comments" aria-hidden="true"></i> Common NLP Tasks</h3>
+            <p>Sentiment analysis, translation, summarization, and question answering are all built on the same core
+              NLP techniques applied to different problems.</p>
+          </article>
+        </div>
+
+        <div class="key-points reveal">
+          <h3>Common NLP Tasks</h3>
+          <ul>
+            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Sentiment analysis — figuring out if text is
+              positive, negative, or neutral</li>
+            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Machine translation — converting text from one
+              language to another</li>
+            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Text summarization — condensing long text into
+              a short summary</li>
+            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Question answering — finding or generating
+              answers from a body of text</li>
+            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Popular tools: Hugging Face Transformers,
+              spaCy, and NLTK</li>
+          </ul>
+        </div>
+        <div class="code-example reveal">
+          <span class="comment"># Analyze sentiment of a sentence with a pre-trained model</span><br>
+          <span class="keyword">from</span> transformers <span class="keyword">import</span> pipeline<br><br>
+          classifier = pipeline(<span class="string">"sentiment-analysis"</span>)<br><br>
+          result = classifier(<span class="string">"I really enjoyed learning NLP today!"</span>)<br>
+          <span class="keyword">print</span>(result)<br>
+          <span class="comment"># Output: [{'label': 'POSITIVE', 'score': 0.999}]</span>
+        </div>
+
+        <!-- Inline Mini-Quiz -->
+        <div class="quiz-container content-card reveal" id="mini-quiz">
+          <div class="quiz-header">
+            <h3><i class="fas fa-question-circle" aria-hidden="true"></i> Test Your Knowledge</h3>
+            <p>Take this quick, 3-question quiz to check your understanding of this topic.</p>
+          </div>
+
+          <div class="quiz-progress" aria-hidden="true">
+            <span class="step active" data-step="1">1</span>
+            <span class="step" data-step="2">2</span>
+            <span class="step" data-step="3">3</span>
+          </div>
+
+          <div class="quiz-question-wrapper">
+            <!-- Question 1 -->
+            <div class="quiz-question active" data-question="1">
+              <span class="quiz-difficulty easy">Easy</span>
+              <h4 class="question-text">What is the main goal of Natural Language Processing?</h4>
+              <div class="quiz-options">
+                <button type="button" class="quiz-option" data-correct="false"
+                  data-feedback="Incorrect. That describes computer vision, not NLP.">Interpreting images and
+                  video</button>
+                <button type="button" class="quiz-option" data-correct="true"
+                  data-feedback="Correct! NLP enables computers to understand, interpret, and generate human language.">Understanding
+                  and generating human language</button>
+                <button type="button" class="quiz-option" data-correct="false"
+                  data-feedback="Incorrect. That describes reinforcement learning.">Learning from trial and error
+                  rewards</button>
+                <button type="button" class="quiz-option" data-correct="false"
+                  data-feedback="Incorrect. That is a hardware concept, not related to NLP directly.">Speeding up
+                  computer processors</button>
+              </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="quiz-question" data-question="2">
+              <span class="quiz-difficulty medium">Medium</span>
+              <h4 class="question-text">What is the first step of breaking text down so a model can process it?</h4>
+              <div class="quiz-options">
+                <button type="button" class="quiz-option" data-correct="false"
+                  data-feedback="Incorrect. That comes after the text has already been broken into tokens.">Word
+                  embeddings</button>
+                <button type="button" class="quiz-option" data-correct="true"
+                  data-feedback="Correct! Tokenization breaks text into smaller pieces called tokens before any further processing.">Tokenization</button>
+                <button type="button" class="quiz-option" data-correct="false"
+                  data-feedback="Incorrect. That is a step used in image tasks, not the first step for text.">Image
+                  segmentation</button>
+                <button type="button" class="quiz-option" data-correct="false"
+                  data-feedback="Incorrect. That is the model architecture, not the first text-processing step.">Applying
+                  a Transformer</button>
+              </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="quiz-question" data-question="3">
+              <span class="quiz-difficulty hard">Hard</span>
+              <h4 class="question-text">What do word embeddings represent?</h4>
+              <div class="quiz-options">
+                <button type="button" class="quiz-option" data-correct="false"
+                  data-feedback="Incorrect. That describes tokenization, not embeddings.">Splitting text into
+                  characters</button>
+                <button type="button" class="quiz-option" data-correct="true"
+                  data-feedback="Correct! Word embeddings are vectors of numbers that capture a word's meaning, placing similar words close together."> Words
+                  as vectors that capture meaning</button>
+                <button type="button" class="quiz-option" data-correct="false"
+                  data-feedback="Incorrect. That describes object detection in computer vision.">Locations of objects
+                  in an image</button>
+                <button type="button" class="quiz-option" data-correct="false"
+                  data-feedback="Incorrect. That is unrelated to how embeddings work.">The grammar rules of a
+                  language</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="quiz-feedback-box hidden">
+            <p class="feedback-text"></p>
+          </div>
+
+          <div class="quiz-actions">
+            <button type="button" class="btn btn-primary" id="quiz-submit-btn" disabled>Submit Answer</button>
+            <button type="button" class="btn btn-secondary hidden" id="quiz-next-btn">Next Question <i
+                class="fas fa-arrow-right"></i></button>
+            <button type="button" class="btn btn-primary hidden" id="quiz-retry-btn">Try Again <i
+                class="fas fa-undo"></i></button>
+          </div>
+
+          <div class="quiz-results hidden">
+            <p class="results-score"><span class="score-num">0</span> / 3</p>
+            <p class="results-message"></p>
+          </div>
+        </div>
+
+        <div class="summary-box reveal">
+          <h2>Summary</h2>
+          <p>Natural Language Processing lets machines understand and generate human language, from analyzing
+            sentiment to answering questions. Continue your journey with <a href="deep-learning.html">Deep
+              Learning</a> to see how Transformers and other architectures make this possible.</p>
+          <a href="deep-learning.html" class="btn btn-primary" style="margin-top: 1rem;">Next: Deep Learning
+            <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <i class="fas fa-brain" aria-hidden="true"></i>
+            <span>AIVerse</span>
+          </a>
+          <p>Learn Artificial Intelligence from Zero to Hero. Free, open-source, and built for everyone.</p>
+          <div class="social-links">
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i
+                class="fab fa-github"></i></a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i
+                class="fab fa-twitter"></i></a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i
+                class="fab fa-linkedin"></i></a>
+            <a href="https://discord.com" target="_blank" rel="noopener noreferrer" aria-label="Discord"><i
+                class="fab fa-discord"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <h4>Learn</h4>
+          <ul>
+            <li><a href="ai-basics.html">AI Basics</a></li>
+            <li><a href="machine-learning.html">Machine Learning</a></li>
+            <li><a href="deep-learning.html">Deep Learning</a></li>
+            <li><a href="prompt-engineering.html">Prompt Engineering</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Advanced</h4>
+          <ul>
+            <li><a href="rag.html">RAG</a></li>
+            <li><a href="ai-agents.html">AI Agents</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">Contribute</a></li>
+            <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">Report a Bug</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 AIVerse. Open Source under MIT License. Built with passion for AI education.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button type="button" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"
+      aria-hidden="true"></i></button>
+  <script src="js/darkmode.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/quiz.js"></script>
+<script src="js/progress.js"></script>
+</body>
+
+</html>
