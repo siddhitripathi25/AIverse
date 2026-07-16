@@ -7,6 +7,89 @@
   'use strict';
 
   /* ==========================================
+     Courses Dropdown
+     ========================================== */
+  function initCoursesDropdown() {
+    var dropdown = document.querySelector('.nav-dropdown');
+    if (!dropdown) return;
+
+    var toggle = dropdown.querySelector('.dropdown-toggle');
+    var menu = dropdown.querySelector('.dropdown-menu');
+    if (!toggle || !menu) return;
+
+    var closeTimer = null;
+    var isDesktop = function () {
+      return window.matchMedia('(min-width: 1024px)').matches;
+    };
+
+    function openDropdown() {
+      dropdown.classList.add('is-open');
+      toggle.setAttribute('aria-expanded', 'true');
+    }
+
+    function closeDropdown() {
+      dropdown.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+
+    function scheduleClose() {
+      clearTimeout(closeTimer);
+      closeTimer = setTimeout(closeDropdown, 150);
+    }
+
+    if (isDesktop()) {
+      dropdown.addEventListener('mouseenter', function () {
+        clearTimeout(closeTimer);
+        openDropdown();
+      });
+
+      dropdown.addEventListener('mouseleave', scheduleClose);
+
+      menu.addEventListener('mouseenter', function () {
+        clearTimeout(closeTimer);
+      });
+
+      menu.addEventListener('mouseleave', scheduleClose);
+    }
+
+    toggle.addEventListener('click', function (e) {
+      if (isDesktop()) return;
+      e.preventDefault();
+      e.stopPropagation();
+      if (dropdown.classList.contains('is-open')) {
+        closeDropdown();
+      } else {
+        openDropdown();
+      }
+    });
+
+    toggle.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        if (dropdown.classList.contains('is-open')) {
+          closeDropdown();
+        } else {
+          openDropdown();
+        }
+      }
+      if (e.key === 'Escape') {
+        closeDropdown();
+        toggle.focus();
+      }
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!dropdown.contains(e.target)) {
+        closeDropdown();
+      }
+    });
+
+    window.addEventListener('resize', function () {
+      closeDropdown();
+    });
+  }
+
+  /* ==========================================
      Mobile Navigation Toggle
      ========================================== */
   function initMobileNav() {
@@ -47,10 +130,12 @@
       }
     });
 
-    // Close menu when a nav link is clicked
-    const navLinks = navMenu.querySelectorAll('.nav-link');
-    navLinks.forEach(function (link) {
-      link.addEventListener('click', closeMenu);
+    // Close menu when a nav link or dropdown item is clicked
+    navMenu.addEventListener('click', function (e) {
+      var link = e.target.closest('.nav-link:not(.dropdown-toggle), .dropdown-item:not(.is-disabled)');
+      if (link) {
+        closeMenu();
+      }
     });
 
     // Close menu when Escape key is pressed (keyboard accessibility)
@@ -95,7 +180,10 @@
      ========================================== */
   function initActiveNavLink() {
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    const navLinks = document.querySelectorAll('.nav-link');
+    const navLinks = document.querySelectorAll('.nav-link:not(.dropdown-toggle)');
+    const dropdownItems = document.querySelectorAll('.dropdown-item:not(.is-disabled)');
+    const coursesToggle = document.querySelector('.dropdown-toggle');
+    var isCoursePage = false;
 
     navLinks.forEach(function (link) {
       const href = link.getAttribute('href');
@@ -103,6 +191,18 @@
         link.classList.add('active');
       }
     });
+
+    dropdownItems.forEach(function (item) {
+      const href = item.getAttribute('href');
+      if (href === currentPage) {
+        item.classList.add('active');
+        isCoursePage = true;
+      }
+    });
+
+    if (isCoursePage && coursesToggle) {
+      coursesToggle.classList.add('active');
+    }
   }
 
   /* ==========================================
@@ -245,6 +345,7 @@
      Initialize All Features
      ========================================== */
   function init() {
+    initCoursesDropdown();
     initMobileNav();
     initStickyHeader();
     initActiveNavLink();

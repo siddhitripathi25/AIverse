@@ -188,6 +188,45 @@
     align-items: center;
   }
 
+  /* Courses dropdown — accordion on mobile */
+  .nav-dropdown {
+    width: 100%;
+  }
+
+  .nav-dropdown .dropdown-toggle {
+    width: 100%;
+    justify-content: space-between;
+    min-height: 44px;
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: var(--font-size-base);
+  }
+
+  .nav-dropdown .dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    padding: 0 0 0 var(--spacing-md);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-base);
+  }
+
+  .nav-dropdown.is-open .dropdown-menu {
+    max-height: 600px;
+    padding-top: var(--spacing-xs);
+    padding-bottom: var(--spacing-xs);
+  }
+
+  .nav-dropdown .dropdown-item {
+    width: 100%;
+    min-height: 44px;
+    font-size: var(--font-size-sm);
+  }
+
   /* Hamburger animation when menu is open */
   .nav-toggle.active span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
